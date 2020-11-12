@@ -1,3 +1,3 @@
-# hs-fulda-ERROR40game
+# Kitten Clicker
 
-kreiert von Cedric Nolte, Nils Schiffhauer und Max Leibold
+created by Nils Schiffhauer, Max Leibold and Cedric Nolte as a project for our university programming class
