@@ -51,7 +51,10 @@ public class AmountTotalClicksLabel extends JLabel {
      */
 
     public String formatCounter(int count){
-        if(count >= 1000000) return "" + count/1000000 + " mil";
+
+        if(count >= 1_000_000_000) return count/1_000_000_000 + " bil";
+        if(count >= 1_000_000) return count/1_000_000 + " mil";
+
         return "" + count;
     }
 
