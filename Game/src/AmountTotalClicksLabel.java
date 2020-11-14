@@ -31,7 +31,7 @@ public class AmountTotalClicksLabel extends JLabel {
 
     public void increaseCounter() {
         count++;
-        this.setText("" + count);
+        this.setText(formatCounter(count));
     }
 
     /**
@@ -41,6 +41,18 @@ public class AmountTotalClicksLabel extends JLabel {
 
     public void increaseCounter(int amount) {
         count += amount;
-        this.setText("" + count);
+        this.setText(formatCounter(count));
     }
+
+
+    /**
+     * shortens long numbers for the counter
+     * @param count count to be shortened
+     */
+
+    public String formatCounter(int count){
+        if(count >= 1000000) return "" + count/1000000 + " mil";
+        return "" + count;
+    }
+
 }
