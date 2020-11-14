@@ -41,5 +41,6 @@ public class AmountTotalClicksLabel extends JLabel {
 
     public void increaseCounter(int amount) {
         count += amount;
+        this.setText("" + count);
     }
 }
