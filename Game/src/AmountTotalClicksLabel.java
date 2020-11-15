@@ -18,12 +18,10 @@ public class AmountTotalClicksLabel extends JLabel {
      */
 
     public AmountTotalClicksLabel(int x, int y, int width, int height) {
+        this.setBounds(x,y,width,height);
 
-        this.setBounds(x, y, width, height);
         this.setText("0");
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
-        this.setText("0");
-
         this.setHorizontalAlignment(JLabel.CENTER);
         this.setVerticalAlignment(JLabel.CENTER);
         //Initialize counter
