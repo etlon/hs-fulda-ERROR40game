@@ -11,7 +11,7 @@ public class Main
         BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0,0, 182, dmf.getHeight());
         MainClickerMiddleLayout mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
 
-        MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(0,0, 300, 300);
+        MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth()/2 - 150,mainClickerMiddleLayout.getHeight()/2 - 150, 300, 300);
 
 
         mainClickerMiddleButton.addActionListener(e -> {

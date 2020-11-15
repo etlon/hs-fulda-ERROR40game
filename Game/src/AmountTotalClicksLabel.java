@@ -35,7 +35,6 @@ public class AmountTotalClicksLabel extends JLabel {
 
     public void increaseCounter() {
         increaseCounter(1);
-        this.setText(formatCounter(count));
     }
 
     /**
@@ -44,7 +43,7 @@ public class AmountTotalClicksLabel extends JLabel {
      */
 
     public void increaseCounter(double amount) {
-        count=count.add( new BigDecimal(amount));
+        count = count.add(new BigDecimal(amount));
         this.setText(formatCounter(count));
     }
 
@@ -57,19 +56,15 @@ public class AmountTotalClicksLabel extends JLabel {
 
     public String formatCounter(BigDecimal count){
 
-
-
         int counter=0;
 
-        while (count.compareTo(new BigDecimal(1000))>=0)
-        {
-            count=count.divide(new BigDecimal(1000));
+        while (count.compareTo(new BigDecimal(1000))>=0) {
+            count = count.divide(new BigDecimal(1000));
             counter++;
         }
 
-        DecimalFormat df=new DecimalFormat("0.00");
-
-        return "" + df.format(count.doubleValue())+((char)(65+counter));
+        DecimalFormat df = new DecimalFormat("0.00");
+        return "" + df.format(count.doubleValue()) + ((char)(65 + counter));
     }
 
 }

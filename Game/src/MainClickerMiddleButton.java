@@ -17,13 +17,12 @@ public class MainClickerMiddleButton extends JButton {
     public MainClickerMiddleButton(int x, int y, int width, int height) {
 
         this.setBounds(x, y, width, height);
-        this.setBackground(Color.CYAN);
 
         try {
             BufferedImage buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized.png"));
             this.setIcon(new ImageIcon(buttonIcon));
-            //this.setBorder(BorderFactory.createEmptyBorder());
-            //this.setContentAreaFilled(false);
+            this.setBorder(BorderFactory.createEmptyBorder());
+            this.setContentAreaFilled(false);
         } catch(Exception e) {
             e.printStackTrace();
         }
