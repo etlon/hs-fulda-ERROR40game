@@ -2,7 +2,6 @@ public class Main
 {
     public static void main(String[] args)
     {
-
         DefaultMainFrame dmf = new DefaultMainFrame(1280,720);
         AmountTotalClicksLabel amountTotalClicks = new AmountTotalClicksLabel(0,0,100,100);
         BuyAutoClickerPanelLayout buyAutoClickerPanel = new BuyAutoClickerPanelLayout(0,0, 182, dmf.getHeight());
@@ -17,7 +16,6 @@ public class Main
         buyAutoClickerPanel.add(amountTotalClicks);
 
         dmf.setVisible(true);
-
 
 
     }
