@@ -1,7 +1,8 @@
-import javax.swing.*;
+package layout;
+
 import java.awt.*;
 
-public class BuyAutoClickerPanelLayout extends JPanel {
+public class BuyAutoClickerPanelLayout extends SimpleLayout {
 
 
     /**
@@ -13,7 +14,7 @@ public class BuyAutoClickerPanelLayout extends JPanel {
      */
 
     public BuyAutoClickerPanelLayout(int x, int y, int width, int height) {
-        this.setBounds(x, y, width, height);
+        super(x,y,width,height);
         this.setBackground(new Color(0, 255, 0));
     }
 }
