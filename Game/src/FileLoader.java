@@ -68,5 +68,15 @@ public class FileLoader {
     }
 
 
+    /**
+     * @param key the key is a property with a corresponding value
+     * @param value the value of the corresponding key
+     */
+
+    public void write(String key, String value){
+
+    }
+
+
 
 }
