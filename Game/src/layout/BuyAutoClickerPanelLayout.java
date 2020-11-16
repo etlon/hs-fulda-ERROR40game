@@ -15,6 +15,7 @@ public class BuyAutoClickerPanelLayout extends SimpleLayout {
 
     public BuyAutoClickerPanelLayout(int x, int y, int width, int height) {
         super(x,y,width,height);
+        this.setLayout(new BorderLayout());
         this.setBackground(new Color(0, 255, 0));
     }
 }

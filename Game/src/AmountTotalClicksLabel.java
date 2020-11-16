@@ -6,8 +6,7 @@ import java.text.DecimalFormat;
 public class AmountTotalClicksLabel extends JLabel {
 
     private BigDecimal count = new BigDecimal(0);
-
-
+    private char[] suffixArray = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     /**
      *
@@ -18,12 +17,13 @@ public class AmountTotalClicksLabel extends JLabel {
      */
 
     public AmountTotalClicksLabel(int x, int y, int width, int height) {
+
         this.setBounds(x,y,width,height);
 
         this.setText("0");
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
         this.setHorizontalAlignment(JLabel.CENTER);
-        this.setVerticalAlignment(JLabel.CENTER);
+        this.setVerticalAlignment(JLabel.TOP);
         //Initialize counter
         this.increaseCounter(0);
 
@@ -57,14 +57,16 @@ public class AmountTotalClicksLabel extends JLabel {
     public String formatCounter(BigDecimal count){
 
         int counter=0;
+        //gerade keine Lust ein Index Out of Bounds zu verhindern
+        if(counter == 25) System.exit(0);
 
         while (count.compareTo(new BigDecimal(1000))>=0) {
             count = count.divide(new BigDecimal(1000));
             counter++;
         }
 
-        DecimalFormat df = new DecimalFormat("0.00");
-        return "" + df.format(count.doubleValue()) + ((char)(65 + counter));
+        DecimalFormat df = new DecimalFormat("0.##");
+        return "" + df.format(count.doubleValue()) + suffixArray[counter];
     }
 
 }
