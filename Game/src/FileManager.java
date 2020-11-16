@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.HashMap;
 
-public class FileLoader {
+public class FileManager {
 
     /**
      * this class is used for reading in a specified file and getting the value to a corresponding key
@@ -21,7 +21,7 @@ public class FileLoader {
      * @param path the path of the file to be read in
      */
 
-    public FileLoader(String path) {
+    public FileManager(String path) {
 
         this.PATH = path;
         file = new File(PATH);
@@ -42,7 +42,7 @@ public class FileLoader {
             while((newLine = br.readLine()) != null) {
 
                 //Escape character (#) for comments
-                if(newLine.charAt(0) == '#') continue;
+                //if(newLine.charAt(0) == '#') continue;
                 //Skips the current line if no equals (=) is found
                 if(!newLine.contains("=")) continue;
 
@@ -69,6 +69,7 @@ public class FileLoader {
 
 
     /**
+     * writes the key and its value in a specified file
      * @param key the key is a property with a corresponding value
      * @param value the value of the corresponding key
      */
