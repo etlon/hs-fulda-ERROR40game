@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -6,7 +7,7 @@ import java.text.DecimalFormat;
 public class AmountTotalClicksLabel extends JLabel {
 
     private BigDecimal count = new BigDecimal(0);
-    private char[] suffixArray = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+    private char[] suffixArray = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
     /**
      *
@@ -19,13 +20,13 @@ public class AmountTotalClicksLabel extends JLabel {
     public AmountTotalClicksLabel(int x, int y, int width, int height) {
 
         this.setBounds(x,y,width,height);
-
+        this.setBorder(new EmptyBorder(0,10,0,0));
         this.setText("0");
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
-        this.setHorizontalAlignment(JLabel.CENTER);
+        //this.setHorizontalAlignment(JLabel.CENTER);
         this.setVerticalAlignment(JLabel.TOP);
         //Initialize counter
-        this.increaseCounter(0);
+        this.setText(String.valueOf(count));
 
     }
 
@@ -58,15 +59,15 @@ public class AmountTotalClicksLabel extends JLabel {
 
         int counter=0;
         //gerade keine Lust ein Index Out of Bounds zu verhindern
-        if(counter == 25) System.exit(0);
+        if(counter == 26) System.exit(0);
 
         while (count.compareTo(new BigDecimal(1000))>=0) {
             count = count.divide(new BigDecimal(1000));
             counter++;
         }
 
-        DecimalFormat df = new DecimalFormat("0.##");
-        return "" + df.format(count.doubleValue()) + suffixArray[counter];
+        DecimalFormat df = new DecimalFormat("0.###");
+        return String.valueOf(df.format(count.doubleValue()) + suffixArray[counter]);
     }
 
 }
