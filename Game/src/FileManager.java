@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.HashMap;
 
 public class FileManager {
@@ -50,6 +52,7 @@ public class FileManager {
                 String value= newLine.split("=")[1];
                 map.put(key, value);
             }
+            br.close();
 
         }catch (Exception e) {
             e.printStackTrace();
@@ -75,6 +78,22 @@ public class FileManager {
      */
 
     public void write(String key, String value){
+
+        BufferedWriter bw;
+        try{
+            if(!file.exists()) file.createNewFile();
+
+            bw = new BufferedWriter(new FileWriter(file));
+
+            bw.write(key + " = " + value);
+
+            bw.close();
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
 
     }
 
