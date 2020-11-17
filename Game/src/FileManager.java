@@ -83,9 +83,10 @@ public class FileManager {
         try{
             if(!file.exists()) file.createNewFile();
 
-            bw = new BufferedWriter(new FileWriter(file));
+            bw = new BufferedWriter(new FileWriter(file, true));
 
-            bw.write(key + " = " + value);
+            bw.write(key + "=" + value);
+            bw.newLine();
 
             bw.close();
 
