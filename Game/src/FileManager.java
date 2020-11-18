@@ -1,8 +1,4 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.HashMap;
 
 public class FileManager {
@@ -27,6 +23,14 @@ public class FileManager {
 
         this.PATH = path;
         file = new File(PATH);
+
+        try {
+            if(!file.exists()) file.createNewFile();
+            else this.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -81,8 +85,6 @@ public class FileManager {
 
         BufferedWriter bw;
         try{
-            if(!file.exists()) file.createNewFile();
-
             bw = new BufferedWriter(new FileWriter(file, true));
 
             bw.write(key + "=" + value);
@@ -95,7 +97,7 @@ public class FileManager {
             e.printStackTrace();
         }
 
-
     }
+
 
 }
