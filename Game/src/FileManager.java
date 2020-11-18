@@ -11,7 +11,7 @@ public class FileManager {
 
 
     private final String PATH;
-    private File file;
+    private final File FILE;
     private HashMap<String, String> map = new HashMap<>();
 
     /**
@@ -22,10 +22,10 @@ public class FileManager {
     public FileManager(String path) {
 
         this.PATH = path;
-        file = new File(PATH);
+        FILE = new File(PATH);
 
         try {
-            if(!file.exists()) file.createNewFile();
+            if(!FILE.exists()) FILE.createNewFile();
             else this.load();
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,7 +43,7 @@ public class FileManager {
 
         BufferedReader br;
         try {
-            br = new BufferedReader(new FileReader(file));
+            br = new BufferedReader(new FileReader(FILE));
             String newLine;
             while((newLine = br.readLine()) != null) {
 
@@ -85,7 +85,7 @@ public class FileManager {
 
         BufferedWriter bw;
         try{
-            bw = new BufferedWriter(new FileWriter(file, true));
+            bw = new BufferedWriter(new FileWriter(FILE, true));
 
             bw.write(key + "=" + value);
             bw.newLine();
@@ -96,6 +96,26 @@ public class FileManager {
         catch(Exception e){
             e.printStackTrace();
         }
+
+    }
+
+
+    /**
+     * overwrites the value of the key
+     * @param key the key is a property with a corresponding value
+     * @param value the value of the corresponding key
+     */
+
+    public void save(String key, String value){
+
+    }
+
+
+    /**
+     * overwrites all values
+     */
+
+    public void save(){
 
     }
 
