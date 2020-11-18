@@ -31,7 +31,6 @@ public class FileManager {
             e.printStackTrace();
         }
 
-
     }
 
     /**
@@ -72,6 +71,16 @@ public class FileManager {
 
     public String getValueByKey(String key) {
         return map.get(key);
+    }
+
+    /**
+     * adds value
+     * @param key the key is a property with a corresponding value
+     * @param value the value to be put into hashmap
+     */
+
+    public void addValueByKey(String key, String value) {
+        map.put(key, value);
     }
 
 
