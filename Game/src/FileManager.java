@@ -110,13 +110,45 @@ public class FileManager {
 
 
     /**
-     * overwrites the value of the key
-     * @param key the key is a property with a corresponding value
-     * @param value the value of the corresponding key
+     * overwrites the value of a specific key
+     * @param keyNew the key is a property with a corresponding value
+     * @param valueNew the value of the corresponding key
      */
 
-    public void save(String key, String value){
+    public void save(String keyNew, String valueNew){
+        BufferedReader br;
+        BufferedWriter bw;
+        HashMap<String, String> temp = new HashMap<>();
 
+        try {
+            br = new BufferedReader(new FileReader(FILE));
+
+            String newLine;
+            while((newLine = br.readLine()) != null) {
+
+                if (!newLine.contains("=")) continue;
+
+                String key = newLine.split("=")[0];
+                String value = newLine.split("=")[1];
+
+                if (key.equals(keyNew)) temp.put(keyNew, valueNew);
+                else temp.put(key, value);
+            }
+
+            bw = new BufferedWriter(new FileWriter(FILE));
+
+            for (String i : temp.keySet()){
+                bw.write(i + "=" + temp.get(i));
+                bw.newLine();
+            }
+
+            bw.close();
+            br.close();
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
