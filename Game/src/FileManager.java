@@ -126,6 +126,20 @@ public class FileManager {
 
     public void save(){
 
+        BufferedWriter bw;
+        try{
+            bw = new BufferedWriter(new FileWriter(FILE));
+
+            for(String i : map.keySet()){
+                bw.write(i + "=" + map.get(i));
+                bw.newLine();
+            }
+            bw.close();
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 
