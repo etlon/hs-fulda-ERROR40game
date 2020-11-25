@@ -19,7 +19,7 @@ public class Main
 
         mainClickerMiddleButton.addActionListener(e -> {
             amountTotalClicks.increaseCounter();
-            Thread t=new ButtonAnim(mainClickerMiddleButton);
+            Thread t = new ButtonAnim(mainClickerMiddleButton);
             t.start();
 
         });
