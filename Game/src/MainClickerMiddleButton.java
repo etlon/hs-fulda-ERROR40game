@@ -22,10 +22,10 @@ public class MainClickerMiddleButton extends JButton {
 
     public MainClickerMiddleButton(int x, int y, int width, int height) {
 
-        this.xCord=x;
-        this.yCord=y;
-        this.width=width;
-        this.height=height;
+        this.xCord = x;
+        this.yCord = y;
+        this.width = width;
+        this.height = height;
 
 
         this.setBounds(this.xCord, this.yCord, this.width, this.height);
@@ -45,15 +45,23 @@ public class MainClickerMiddleButton extends JButton {
     {
         try
         {
+            Thread.sleep(100);
+            this.setBounds(this.xCord+37, this.yCord+37, this.width-75, this.height-75);
             BufferedImage buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized75.png"));
             this.setIcon(new ImageIcon(buttonIcon));
+            this.setBorder(BorderFactory.createEmptyBorder());
+            this.setContentAreaFilled(false);
 
-            Thread.sleep(100);
+            Thread.sleep(150);
 
 
 
+            this.setBounds(this.xCord, this.yCord, this.width, this.height);
             buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized.png"));
             this.setIcon(new ImageIcon(buttonIcon));
+            this.setBorder(BorderFactory.createEmptyBorder());
+            this.setContentAreaFilled(false);
+
 
 
         } catch (IOException | InterruptedException e)
