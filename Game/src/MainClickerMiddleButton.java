@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class MainClickerMiddleButton extends JButton {
 
@@ -14,9 +15,20 @@ public class MainClickerMiddleButton extends JButton {
      * @param height height of button
      */
 
+    int xCord;
+    int yCord;
+    int width;
+    int height;
+
     public MainClickerMiddleButton(int x, int y, int width, int height) {
 
-        this.setBounds(x, y, width, height);
+        this.xCord=x;
+        this.yCord=y;
+        this.width=width;
+        this.height=height;
+
+
+        this.setBounds(this.xCord, this.yCord, this.width, this.height);
 
         try {
             BufferedImage buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized.png"));
@@ -28,4 +40,31 @@ public class MainClickerMiddleButton extends JButton {
         }
 
     }
+
+    public void anim()
+    {
+        try
+        {
+            BufferedImage buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized75.png"));
+            this.setIcon(new ImageIcon(buttonIcon));
+
+            Thread.sleep(100);
+
+
+
+            buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized.png"));
+            this.setIcon(new ImageIcon(buttonIcon));
+
+
+        } catch (IOException | InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
+
 }

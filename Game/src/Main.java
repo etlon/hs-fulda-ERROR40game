@@ -1,7 +1,6 @@
 import layout.BuyAutoClickerPanelLayout;
 import layout.MainClickerMiddleLayout;
 
-import javax.swing.*;
 import java.awt.*;
 
 
@@ -20,6 +19,9 @@ public class Main
 
         mainClickerMiddleButton.addActionListener(e -> {
             amountTotalClicks.increaseCounter();
+            Thread t=new ButtonAnim(mainClickerMiddleButton);
+            t.start();
+
         });
 
         //Adding BuyMenuLayout to MainFrame
