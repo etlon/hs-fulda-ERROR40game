@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class MainClickerMiddleButton extends JButton {
 
@@ -14,9 +15,20 @@ public class MainClickerMiddleButton extends JButton {
      * @param height height of button
      */
 
+    int xCord;
+    int yCord;
+    int width;
+    int height;
+
     public MainClickerMiddleButton(int x, int y, int width, int height) {
 
-        this.setBounds(x, y, width, height);
+        this.xCord = x;
+        this.yCord = y;
+        this.width = width;
+        this.height = height;
+
+
+        this.setBounds(this.xCord, this.yCord, this.width, this.height);
 
         try {
             BufferedImage buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized.png"));
@@ -28,4 +40,39 @@ public class MainClickerMiddleButton extends JButton {
         }
 
     }
+
+    public void anim()
+    {
+        try
+        {
+            Thread.sleep(100);
+
+            BufferedImage buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized75.png"));
+            this.setIcon(new ImageIcon(buttonIcon));
+            this.setBorder(BorderFactory.createEmptyBorder());
+            this.setContentAreaFilled(false);
+            this.setBounds(this.xCord+37, this.yCord+37, this.width-75, this.height-75);
+            Thread.sleep(150);
+
+
+
+
+            buttonIcon = ImageIO.read(new File("Game/assets/bongocatresized.png"));
+            this.setIcon(new ImageIcon(buttonIcon));
+            this.setBorder(BorderFactory.createEmptyBorder());
+            this.setContentAreaFilled(false);
+            this.setBounds(this.xCord, this.yCord, this.width, this.height);
+
+
+        } catch (IOException | InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
+
 }
