@@ -70,4 +70,12 @@ public class AmountTotalClicksLabel extends JLabel {
         return String.valueOf(df.format(count.doubleValue()) + suffixArray[counter]);
     }
 
+    /**
+     * returns current count as String
+     */
+
+    public String getCount(){
+        return ""+count;
+    }
+
 }
