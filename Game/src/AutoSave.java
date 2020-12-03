@@ -1,6 +1,6 @@
 public class AutoSave extends Thread{
 
-    private String key = "score";
+    private String key = "money";
     private String value = "";
     private FileManager fm;
     private AmountTotalClicksLabel aTCL;

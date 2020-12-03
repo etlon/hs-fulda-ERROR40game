@@ -16,6 +16,8 @@ public class Main
 
         MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth()/2 - 150,mainClickerMiddleLayout.getHeight()/2 - 150, 300, 300);
 
+        FileManager fm = new FileManager("Game/game.save");
+        AutoSave as = new AutoSave(fm, amountTotalClicks);
 
         mainClickerMiddleButton.addActionListener(e -> {
             amountTotalClicks.increaseCounter();
