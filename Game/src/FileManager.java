@@ -61,6 +61,8 @@ public class FileManager {
             e.printStackTrace();
         }
 
+        Main.amountTotalClicks.increaseCounter(getValueByKey("money"));
+
     }
 
     /**
