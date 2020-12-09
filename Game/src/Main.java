@@ -6,22 +6,29 @@ import java.awt.*;
 
 public class Main
 {
+    public static AmountTotalClicksLabel amountTotalClicks;
+
     public static void main(String[] args)
     {
 
-        DefaultMainFrame dmf = new DefaultMainFrame(1280,720);
-        AmountTotalClicksLabel amountTotalClicks = new AmountTotalClicksLabel(0,0,100,100);
-        BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0,0, 182, dmf.getHeight());
+        DefaultMainFrame dmf = new DefaultMainFrame(1280, 720);
+        amountTotalClicks = new AmountTotalClicksLabel(0, 0, 100, 100);
+        BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
         MainClickerMiddleLayout mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
 
-        MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth()/2 - 150,mainClickerMiddleLayout.getHeight()/2 - 150, 300, 300);
+        MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - 150, mainClickerMiddleLayout.getHeight() / 2 - 150, 300, 300);
+
+        Shop shop = new Shop();
+        Thread income=new PassiveIncome(shop);
+        income.start();
 
         FileManager fm = new FileManager("Game/game.save");
         amountTotalClicks.increaseCounter(fm.getValueByKey("money"));
         Thread as = new AutoSave(fm, amountTotalClicks);
         as.start();
 
-        mainClickerMiddleButton.addActionListener(e -> {
+        mainClickerMiddleButton.addActionListener(e ->
+        {
             amountTotalClicks.increaseCounter();
             Thread t = new ButtonAnim(mainClickerMiddleButton);
             t.start();
@@ -38,15 +45,6 @@ public class Main
         buyAutoClickerPanelLayout.add(amountTotalClicks);
 
         dmf.setVisible(true);
-
-
-
-
-
-
-
-
-
 
 
     }
