@@ -7,6 +7,7 @@ import java.awt.*;
 public class Main
 {
     public static AmountTotalClicksLabel amountTotalClicks;
+    public static Shop shop;
 
     public static void main(String[] args)
     {
@@ -18,13 +19,12 @@ public class Main
 
         MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - 150, mainClickerMiddleLayout.getHeight() / 2 - 150, 300, 300);
 
-        Shop shop = new Shop();
-        Thread income=new PassiveIncome(shop);
+        shop = new Shop();
+        Thread income = new PassiveIncome(shop);
         income.start();
 
         FileManager fm = new FileManager("Game/game.save");
-        amountTotalClicks.increaseCounter(fm.getValueByKey("money"));
-        Thread as = new AutoSave(fm, amountTotalClicks);
+        Thread as = new AutoSave(fm);
         as.start();
 
         mainClickerMiddleButton.addActionListener(e ->
