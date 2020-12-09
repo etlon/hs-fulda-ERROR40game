@@ -160,6 +160,8 @@ public class FileManager {
 
     public void save(){
 
+        this.setValues();
+
         BufferedWriter bw;
         try{
             bw = new BufferedWriter(new FileWriter(FILE));
@@ -176,5 +178,12 @@ public class FileManager {
         }
     }
 
+    /**
+     *  writes all important stats into hashmap
+     */
 
+    public void setValues(){
+        this.addValueByKey("money", Main.amountTotalClicks.getCount());
+
+    }
 }
