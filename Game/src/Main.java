@@ -23,8 +23,8 @@ public class Main
         shop = new Shop();
         Thread income = new PassiveIncome(shop);
         income.start();
-
-        FileManager fm = new FileManager("Game/game.save");
+        String documentFolder = ToolManager.getDocumentPath();
+        FileManager fm = new FileManager(documentFolder + "/game.save");
         Thread as = new AutoSave(fm);
         as.start();
 

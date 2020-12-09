@@ -6,3 +6,6 @@
 ## Checklist
 - [x] create checklist
 
+## Downloads
+You can download the latest dev release
+
