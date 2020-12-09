@@ -14,4 +14,5 @@ public class DefaultMainFrame extends JFrame {
         this.setResizable(false);
         this.setLayout(null);
     }
+
 }

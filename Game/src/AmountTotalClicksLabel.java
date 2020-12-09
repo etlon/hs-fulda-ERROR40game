@@ -8,7 +8,7 @@ public class AmountTotalClicksLabel extends JLabel {
 
     private BigDecimal count = new BigDecimal(0);
     private char[] suffixArray = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-
+    DecimalFormat df;
     /**
      *
      * @param x origin of label on x axis
@@ -23,6 +23,9 @@ public class AmountTotalClicksLabel extends JLabel {
         this.setBorder(new EmptyBorder(0,10,0,0));
         this.setText("0");
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
+
+        df = new DecimalFormat("0.###");
+
         //this.setHorizontalAlignment(JLabel.CENTER);
         this.setVerticalAlignment(JLabel.TOP);
         //Initialize counter
@@ -71,7 +74,6 @@ public class AmountTotalClicksLabel extends JLabel {
             counter++;
         }
 
-        DecimalFormat df = new DecimalFormat("0.###");
         return String.valueOf(df.format(count.doubleValue()) + suffixArray[counter]);
     }
 
