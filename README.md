@@ -5,7 +5,8 @@
 
 ## Checklist
 - [x] create checklist
+- [x] first major update including auto-save, passive income and an animated cat
 
 ## Downloads
-You can download the latest dev release
+You can download the latest release [here](https://github.com/etlon/hs-fulda-ERROR40game/releases)
 
