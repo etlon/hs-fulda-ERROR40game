@@ -15,6 +15,7 @@ You have two choices:
 
 ## Downloads
 Only works with JDK/JRE 11.0.2 and newer!
+Windows only!
 You can download the latest release [here](https://github.com/etlon/hs-fulda-ERROR40game/releases)
 
 ## FAQ
