@@ -6,6 +6,6 @@
 - [x] first major update including auto-save, passive income and an animated cat
 
 ## Downloads
-Only works with JDK/JRE 15 and newer!
+Only works with JDK/JRE 11.0.2 and newer!
 You can download the latest release [here](https://github.com/etlon/hs-fulda-ERROR40game/releases)
 
