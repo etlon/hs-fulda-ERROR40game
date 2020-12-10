@@ -6,6 +6,12 @@
 - [x] first major update including auto-save, passive income and an animated cat
 - [ ] pretty icon
 - [ ] buyable upgrades for automation
+## How to use
+You have two choices: 
+- you either open the program like every other .exe or
+- you open the cmd/powershell, locate your jar file and type in
+```java -jar KittenClicker.jar```
+
 
 ## Downloads
 Only works with JDK/JRE 11.0.2 and newer!
