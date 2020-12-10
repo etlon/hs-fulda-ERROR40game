@@ -8,6 +8,7 @@ public class Main
 {
     public static AmountTotalClicksLabel amountTotalClicks;
     public static Shop shop;
+    public static FileManager fm;
 
     public static void main(String[] args)
     {
@@ -24,7 +25,7 @@ public class Main
         Thread income = new PassiveIncome(shop);
         income.start();
         String documentFolder = ToolManager.getDocumentPath();
-        FileManager fm = new FileManager(documentFolder + "/game.save");
+        fm = new FileManager(documentFolder + "/game.save");
         Thread as = new AutoSave(fm);
         as.start();
 
