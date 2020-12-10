@@ -23,4 +23,4 @@ You can download the latest release [here](https://github.com/etlon/hs-fulda-ERR
 #### How do I save my current progress?
 - Your progress will be saved automatically every 10 minutes or by closing the game via the X in the top right corner of your game
 #### I lost my progress
-- Please contact maxt3rbaxt3r on github
+- Just edit the game.save file
