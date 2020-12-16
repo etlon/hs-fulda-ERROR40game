@@ -2,11 +2,11 @@ package buyables;
 
 public abstract class ShopItem
 {
-    private double basePrice;
-    private int amount;
-    private double price;
-    private double baseIncome;
-    private String name;
+    protected double basePrice;
+    protected int amount;
+    protected double price;
+    protected double baseIncome;
+    protected String name;
 
 
     public ShopItem()
@@ -27,7 +27,7 @@ public abstract class ShopItem
     }
 
 
-    private void calcPrice()
+    protected void calcPrice()
     {
         this.price = basePrice + basePrice * amount * 0.2;
     }
