@@ -6,10 +6,12 @@ public abstract class ShopItem
     private int amount;
     private double price;
     private double baseIncome;
+    private String name;
 
 
     public ShopItem()
     {
+        this.name = "";
         this.amount = 0;
     }
 
