@@ -11,8 +11,6 @@ public abstract class ShopItem
     public ShopItem()
     {
         this.amount = 0;
-
-
     }
 
     public void setAmount(int amount)
@@ -24,9 +22,7 @@ public abstract class ShopItem
     {
         this.amount++;
         this.calcPrice();
-
     }
-
 
 
     private void calcPrice()
@@ -34,13 +30,14 @@ public abstract class ShopItem
         this.price = basePrice + basePrice * amount * 0.2;
     }
 
-    public double getPrice(){
+    public double getPrice()
+    {
         return this.price;
     }
 
     public double getIncome()
     {
-        return  amount * baseIncome;
+        return amount * baseIncome;
     }
 
 }
