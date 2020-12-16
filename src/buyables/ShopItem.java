@@ -42,4 +42,8 @@ public abstract class ShopItem
         return amount * baseIncome;
     }
 
+    public int getAmount(){
+        return this.amount;
+    }
+
 }
