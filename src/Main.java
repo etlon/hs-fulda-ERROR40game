@@ -12,7 +12,6 @@ public class Main
 
     public static void main(String[] args)
     {
-
         DefaultMainFrame dmf = new DefaultMainFrame(1280, 720);
 
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 100, 100);
