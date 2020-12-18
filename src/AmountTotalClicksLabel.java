@@ -28,10 +28,9 @@ public class AmountTotalClicksLabel extends JLabel {
 
         df = new DecimalFormat("0.###");
 
-        //this.setHorizontalAlignment(JLabel.CENTER);
-        this.setVerticalAlignment(JLabel.TOP);
         //Initialize counter
         this.setText(String.valueOf(count));
+        this.setVerticalAlignment(SwingConstants.CENTER);
 
     }
 
