@@ -1,8 +1,8 @@
 package buyables;
 
-public class Yarn extends ShopItem {
+public class ItemYarn extends ShopItem {
 
-    public Yarn() {
+    public ItemYarn() {
         this.name = "Yarn";
         this.amount = 0;
         this.basePrice = 100;

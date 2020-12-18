@@ -1,8 +1,8 @@
 package buyables;
 
-public class Grandma extends ShopItem{
+public class ItemGrandma extends ShopItem{
 
-    public Grandma(){
+    public ItemGrandma(){
         this.name = "Grandma";
         this.amount = 0;
         this.basePrice = 500;
