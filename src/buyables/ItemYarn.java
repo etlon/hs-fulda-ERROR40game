@@ -7,7 +7,7 @@ public class ItemYarn extends ShopItem {
         this.amount = 0;
         this.basePrice = 100;
         this.baseIncome = 1;
-    };;;;;
+    }
 
 
 
