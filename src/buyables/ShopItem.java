@@ -9,40 +9,33 @@ public abstract class ShopItem
     protected String name;
 
 
-    public ShopItem()
-    {
+    public ShopItem() {
         this.name = "";
         this.amount = 0;
     }
 
-    public void setAmount(int amount)
-    {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public void buy()
-    {
+    public void buy() {
         this.amount++;
         this.calcPrice();
     }
 
-
-    protected void calcPrice()
-    {
+    protected void calcPrice() {
         this.price = basePrice + basePrice * amount * 0.2;
     }
 
-    public double getPrice()
-    {
+    public double getPrice() {
         return this.price;
     }
 
-    public double getIncome()
-    {
+    public double getIncome() {
         return amount * baseIncome;
     }
 
-    public int getAmount(){
+    public int getAmount() {
         return this.amount;
     }
 
