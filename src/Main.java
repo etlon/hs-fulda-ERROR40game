@@ -2,6 +2,7 @@ import layout.BuyAutoClickerPanelLayout;
 import layout.MainClickerMiddleLayout;
 
 import java.awt.*;
+import java.io.File;
 
 
 public class Main
@@ -24,7 +25,14 @@ public class Main
         Thread income = new PassiveIncome(shop);
         income.start();
         String documentFolder = ToolManager.getDocumentPath();
-        fm = new FileManager(documentFolder + "/game.save");
+        System.out.println(documentFolder);
+        String folderName = "/kittenclicker/";
+        File theDir = new File(documentFolder + folderName);
+        if (!theDir.exists()){
+            theDir.mkdirs();
+        }
+
+        fm = new FileManager(documentFolder + folderName + "game.save");
         Thread as = new AutoSave(fm);
         as.start();
 
