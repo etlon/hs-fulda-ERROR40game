@@ -25,7 +25,6 @@ public class Main
         Thread income = new PassiveIncome(shop);
         income.start();
         String documentFolder = ToolManager.getDocumentPath();
-        System.out.println(documentFolder);
         String folderName = "/kittenclicker/";
         File theDir = new File(documentFolder + folderName);
         if (!theDir.exists()){
