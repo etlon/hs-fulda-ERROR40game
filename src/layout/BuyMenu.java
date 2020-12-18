@@ -11,8 +11,8 @@ public class BuyMenu extends JLabel {
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
         this.setVerticalAlignment(JLabel.BOTTOM);
         this.setOpaque(true);
-        this.setBackground(Color.RED);
-        this.setLayout(new GridLayout());
+        this.setBackground(Color.WHITE);
+
 
     }
 

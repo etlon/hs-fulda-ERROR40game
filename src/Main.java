@@ -2,6 +2,7 @@ import layout.BuyAutoClickerPanelLayout;
 import layout.BuyMenu;
 import layout.MainClickerMiddleLayout;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
@@ -14,6 +15,7 @@ public class Main
 
     public static void main(String[] args)
     {
+        int amountItems = 5;
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";
         shop = new Shop();
@@ -23,13 +25,31 @@ public class Main
 
         Thread as = new AutoSave(fm);
 
+        /*
+
+        DefaultMainFrame
+        |
+        |---->BuyAutoClickerPanelLayout
+        |     |-->amountTotalClicksLabel    height: 50px
+        |     |-->BuyMenu                   height: height - 50px
+        |---->MainClickerMiddleLayout
+              |-->mainClickerMiddleButton
+
+         */
+
+
+
 
         //amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
         DefaultMainFrame dmf = new DefaultMainFrame(1280, 720);
         BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
         MainClickerMiddleLayout mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
         MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - 150, mainClickerMiddleLayout.getHeight() / 2 - 150, 300, 300);
-        BuyMenu buyMenu = new BuyMenu(0,0, 182, dmf.getHeight()/2);
+        BuyMenu buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
+
+        System.out.println("BuyAutoClickerPanelLayoutHeight: " + buyAutoClickerPanelLayout.getHeight());
+        System.out.println("amountTotalClicksLabel: " + amountTotalClicks.getHeight());
+        System.out.println("BuyMenuHeight: " + buyMenu.getHeight());
 
         Thread income = new PassiveIncome(shop);
         //shop = new Shop();
@@ -69,6 +89,31 @@ public class Main
         //BuyMenu buyMenu = new BuyMenu(0,0, 182, dmf.getHeight()/2);
 
         buyAutoClickerPanelLayout.add(buyMenu);
+
+
+        for(int i = 0; i < amountItems; i++) {
+
+            JLabel label = new JLabel();
+            label.setOpaque(true);
+            label.setBackground(Color.white);
+            label.setBounds(0, i * (630 / amountItems),182,(630 / amountItems));
+            label.setBackground(new Color(i*(255/amountItems), i*(255/amountItems), i*(255/amountItems)));
+            label.setText("" + i);
+            label.setVerticalAlignment(SwingConstants.CENTER);
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+
+            buyMenu.add(label);
+        }
+
+
+
+
+
+
+
+
+
+
 
         dmf.setVisible(true);
 
