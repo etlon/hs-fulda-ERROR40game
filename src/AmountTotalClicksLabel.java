@@ -23,6 +23,8 @@ public class AmountTotalClicksLabel extends JLabel {
         this.setBorder(new EmptyBorder(0,10,0,0));
         this.setText("0");
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
+        this.setOpaque(true);
+        this.setBackground(Color.orange);
 
         df = new DecimalFormat("0.###");
 
