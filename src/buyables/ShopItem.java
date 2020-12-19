@@ -38,4 +38,8 @@ public abstract class ShopItem
     public int getAmount() {
         return this.amount;
     }
+
+    public String getName(){
+        return this.name;
+    }
 }
