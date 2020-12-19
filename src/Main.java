@@ -15,10 +15,11 @@ public class Main
 
     public static void main(String[] args)
     {
-        int amountItems = 5;
+
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";
         shop = new Shop();
+        int amountItems = shop.getAmountItems();
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
         File theDir = new File(documentFolder + folderName);
         fm = new FileManager(documentFolder + folderName + "game.save");
