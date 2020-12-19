@@ -184,6 +184,6 @@ public class FileManager {
 
     public void setValues(){
         this.addValueByKey("money", Main.amountTotalClicks.getCount());
-
+        Main.shop.saveItems();
     }
 }
