@@ -12,6 +12,7 @@ public class Main
     public static AmountTotalClicksLabel amountTotalClicks;
     public static Shop shop;
     public static FileManager fm;
+    public static JLabel[] shopLabel;
 
     public static void main(String[] args)
     {
@@ -20,6 +21,7 @@ public class Main
         String folderName = "/kittenclicker/";
         shop = new Shop();
         int amountItems = shop.getAmountItems();
+        shopLabel=new JLabel[amountItems];
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
         File theDir = new File(documentFolder + folderName);
         fm = new FileManager(documentFolder + folderName + "game.save");
@@ -102,6 +104,8 @@ public class Main
             label.setText("" + i);
             label.setVerticalAlignment(SwingConstants.CENTER);
             label.setHorizontalAlignment(SwingConstants.CENTER);
+
+            shopLabel[i]=label;
 
             buyMenu.add(label);
         }
