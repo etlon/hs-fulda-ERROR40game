@@ -31,4 +31,9 @@ public class Shop
     public int getAmountItems(){
         return itemList.length;
     }
+
+    public ShopItem[] getItemList()
+    {
+        return itemList;
+    }
 }
