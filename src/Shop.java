@@ -60,10 +60,12 @@ public class Shop
 
     public void buyItem(ShopItem item)
     {
-        if(0<=Main.amountTotalClicks.getDecimalCount().compareTo(new BigDecimal(item.getPrice())))
+      if( Main.amountTotalClicks.getDecimalCount().compareTo(new BigDecimal(item.getPrice())) >= 0)
         {
+
+
+            Main.amountTotalClicks.increaseCounter(0 - item.getPrice());
             item.buy();
-            Main.amountTotalClicks.increaseCounter(0-item.getPrice());
 
         }
     }

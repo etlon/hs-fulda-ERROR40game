@@ -31,6 +31,7 @@ public abstract class ShopItem
     }
 
     public double getPrice() {
+        this.calcPrice();
         return this.price;
     }
 
