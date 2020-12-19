@@ -3,6 +3,7 @@ import buyables.ItemYarn;
 import buyables.ShopItem;
 
 import javax.swing.*;
+import java.math.BigDecimal;
 
 public class Shop
 {
@@ -62,5 +63,15 @@ public class Shop
             }
         }
         return null;
+    }
+
+    public void buyItem(ShopItem item)
+    {
+        if(0<=Main.amountTotalClicks.getDecimalCount().compareTo(new BigDecimal(item.getPrice())))
+        {
+            item.buy();
+            Main.amountTotalClicks.increaseCounter(0-item.getPrice());
+
+        }
     }
 }

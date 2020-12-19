@@ -86,4 +86,9 @@ public class AmountTotalClicksLabel extends JLabel {
         return ""+count;
     }
 
+    public BigDecimal getDecimalCount()
+    {
+        return count;
+    }
+
 }

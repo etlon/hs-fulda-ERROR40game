@@ -113,7 +113,7 @@ public class Main
                 public void mouseReleased(MouseEvent e)
                 {
                     if (e.isPopupTrigger() || e.getButton() == MouseEvent.BUTTON1) {
-                        shop.getClickedItem(label,shopLabel).buy();
+                        shop.buyItem(shop.getClickedItem(label,shopLabel));
                     }
                 }
             });

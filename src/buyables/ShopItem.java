@@ -1,5 +1,6 @@
 package buyables;
 
+
 public abstract class ShopItem
 {
     protected double basePrice;
@@ -19,9 +20,10 @@ public abstract class ShopItem
     }
 
     public void buy() {
+
         this.amount++;
         this.calcPrice();
-        
+
     }
 
     protected void calcPrice() {
