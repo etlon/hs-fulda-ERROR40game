@@ -1,8 +1,7 @@
 package buyables;
 
 
-public abstract class ShopItem
-{
+public abstract class ShopItem {
     protected double basePrice;
     protected int amount;
     protected double price;
@@ -43,7 +42,7 @@ public abstract class ShopItem
         return this.amount;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 }

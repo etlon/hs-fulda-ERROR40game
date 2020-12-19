@@ -3,8 +3,7 @@ import javax.swing.*;
 public class DefaultMainFrame extends JFrame {
 
     /**
-     *
-     * @param width width of the whole game
+     * @param width  width of the whole game
      * @param height height of the whole game
      */
 

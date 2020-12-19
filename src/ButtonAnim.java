@@ -1,16 +1,14 @@
-public class ButtonAnim extends Thread
-{
+public class ButtonAnim extends Thread {
     MainClickerMiddleButton button;
-    ButtonAnim(MainClickerMiddleButton button)
-    {
+
+    ButtonAnim(MainClickerMiddleButton button) {
         this.button = button;
     }
 
 
-    public void run()
-    {
+    public void run() {
 
-            button.anim();
+        button.anim();
     }
 
 }

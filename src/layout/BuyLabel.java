@@ -18,7 +18,7 @@ public class BuyLabel extends JLabel {
         try {
             image = ImageIO.read(getClass().getResource("/assets/" + fileName));
             return true;
-        } catch(Exception e) {
+        } catch (Exception e) {
             return false;
         }
     }
