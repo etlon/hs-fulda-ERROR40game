@@ -37,13 +37,6 @@ public class Shop
         }
     }
 
-    public void loadItems(){
-        for (ShopItem item: itemList){
-            int amount = Integer.parseInt(Main.fm.getValueByKey(item.getName()));
-            item.setAmount(amount);
-        }
-    }
-
     public int getAmountItems(){
         return itemList.length;
     }
