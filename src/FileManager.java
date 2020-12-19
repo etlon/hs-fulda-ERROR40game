@@ -62,6 +62,7 @@ public class FileManager {
         }
 
         Main.amountTotalClicks.increaseCounter(getValueByKey("money"));
+        Main.shop.loadItems();
 
     }
 

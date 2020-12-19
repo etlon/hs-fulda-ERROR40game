@@ -36,6 +36,10 @@ public class Shop
         }
     }
 
+    public void loadItems(){
+
+    }
+
     public int getAmountItems(){
         return itemList.length;
     }
