@@ -4,6 +4,8 @@ import layout.MainClickerMiddleLayout;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 
 
@@ -104,6 +106,18 @@ public class Main
             label.setText("" + i);
             label.setVerticalAlignment(SwingConstants.CENTER);
             label.setHorizontalAlignment(SwingConstants.CENTER);
+
+            label.addMouseListener(new MouseAdapter()
+            {
+                @Override
+                public void mouseReleased(MouseEvent e)
+                {
+                    if (e.isPopupTrigger() || e.getButton() == MouseEvent.BUTTON1) {
+                        shop.getClickedItem(label,shopLabel).buy();
+                    }
+                }
+            });
+
 
             shopLabel[i]=label;
 

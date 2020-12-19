@@ -21,6 +21,7 @@ public abstract class ShopItem
     public void buy() {
         this.amount++;
         this.calcPrice();
+        
     }
 
     protected void calcPrice() {

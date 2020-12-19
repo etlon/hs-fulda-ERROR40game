@@ -1,4 +1,8 @@
+import buyables.ItemGrandma;
+import buyables.ItemYarn;
 import buyables.ShopItem;
+
+import javax.swing.*;
 
 public class Shop
 {
@@ -20,6 +24,10 @@ public class Shop
 
     public void fillItemList(){
         //create every buyable item once and put it into "itemList"
+        itemList=new ShopItem[2];
+        //Created just for testing purposes need further updates
+        itemList[0]=new ItemGrandma();
+        itemList[1]=new ItemYarn();
     }
 
     public void saveItems(){
@@ -35,5 +43,17 @@ public class Shop
     public ShopItem[] getItemList()
     {
         return itemList;
+    }
+
+    public ShopItem getClickedItem(JLabel label, JLabel[] labelArray)
+    {
+        for (int i = 0; i < labelArray.length; i++)
+        {
+            if(labelArray[i].equals(label))
+            {
+                return itemList[i];
+            }
+        }
+        return null;
     }
 }
