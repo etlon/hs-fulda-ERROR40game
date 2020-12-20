@@ -1,5 +1,7 @@
 package com.buyables;
 
+import java.text.DecimalFormat;
+
 public abstract class ShopItem
 {
     protected double basePrice;
@@ -23,7 +25,9 @@ public abstract class ShopItem
     }
 
     protected void calcPrice() {
-        this.price = basePrice + basePrice * amount * 0.2;
+        this.price = basePrice * Math.pow(1.2, amount);
+        DecimalFormat df = new DecimalFormat("0");
+        this.price = Double.parseDouble(df.format(this.price));
     }
 
     public double getPrice() {
