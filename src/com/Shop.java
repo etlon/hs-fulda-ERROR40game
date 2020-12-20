@@ -1,8 +1,6 @@
 package com;
 
-import com.buyables.ItemGrandma;
-import com.buyables.ItemYarn;
-import com.buyables.ShopItem;
+import com.buyables.*;
 
 public class Shop
 {
@@ -23,10 +21,13 @@ public class Shop
 
     public void fillItemList() {
         //create every buyable item once and put it into "itemList"
-        itemList = new ShopItem[2];
+        itemList = new ShopItem[5];
         //Created just for testing purposes need further updates
-        itemList[0] = new ItemGrandma();
-        itemList[1] = new ItemYarn();
+        itemList[0] = new ItemYarn();
+        itemList[1] = new ItemBlanket();
+        itemList[2] = new ItemPremiumCatFood();
+        itemList[3] = new ItemGrandma();
+        itemList[4] = new ItemDJKittenz();
     }
 
     public void saveItems() {
