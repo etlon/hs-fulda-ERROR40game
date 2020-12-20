@@ -20,7 +20,6 @@ public abstract class ShopItem
 
     public void buy() {
         this.amount++;
-        this.calcPrice();
     }
 
     protected void calcPrice() {
@@ -28,6 +27,7 @@ public abstract class ShopItem
     }
 
     public double getPrice() {
+        this.calcPrice();
         return this.price;
     }
 
