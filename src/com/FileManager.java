@@ -1,3 +1,7 @@
+package com;
+
+import com.buyables.ShopItem;
+
 import java.io.*;
 import java.util.HashMap;
 
@@ -62,7 +66,15 @@ public class FileManager {
         }
 
         Main.amountTotalClicks.increaseCounter(getValueByKey("money"));
+        this.loadItems();
+    }
 
+    public void loadItems() {
+        ShopItem[] items = Main.shop.getItemList();
+        for (ShopItem item : items) {
+            int amount = Integer.parseInt(this.getValueByKey(item.getName()));
+            item.setAmount(amount);
+        }
     }
 
     /**
@@ -184,6 +196,6 @@ public class FileManager {
 
     public void setValues(){
         this.addValueByKey("money", Main.amountTotalClicks.getCount());
-
+        Main.shop.saveItems();
     }
 }

@@ -1,4 +1,4 @@
-package buyables;
+package com.buyables;
 
 public abstract class ShopItem
 {
@@ -20,7 +20,6 @@ public abstract class ShopItem
 
     public void buy() {
         this.amount++;
-        this.calcPrice();
     }
 
     protected void calcPrice() {
@@ -28,6 +27,7 @@ public abstract class ShopItem
     }
 
     public double getPrice() {
+        this.calcPrice();
         return this.price;
     }
 
@@ -37,5 +37,9 @@ public abstract class ShopItem
 
     public int getAmount() {
         return this.amount;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
