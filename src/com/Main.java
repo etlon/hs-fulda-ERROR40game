@@ -46,10 +46,6 @@ public class Main
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - 150, mainClickerMiddleLayout.getHeight() / 2 - 150, 300, 300);
         buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
 
-        System.out.println("BuyAutoClickerPanelLayoutHeight: " + buyAutoClickerPanelLayout.getHeight());
-        System.out.println("amountTotalClicksLabel: " + amountTotalClicks.getHeight());
-        System.out.println("BuyMenuHeight: " + buyMenu.getHeight());
-
         Thread income = new PassiveIncome(shop);
 
         income.start();
