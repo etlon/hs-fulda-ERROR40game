@@ -1,4 +1,4 @@
-package buyables;
+package com.buyables;
 
 public class ItemDJCat extends ShopItem{
 
