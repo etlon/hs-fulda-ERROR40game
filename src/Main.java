@@ -11,13 +11,14 @@ import java.io.File;
 public class Main
 {
     public static AmountTotalClicksLabel amountTotalClicks;
+    public static BuyMenu buyMenu;
     public static Shop shop;
     public static FileManager fm;
     public static DefaultMainFrame dmf;
     public static BuyAutoClickerPanelLayout buyAutoClickerPanelLayout;
     public static MainClickerMiddleLayout mainClickerMiddleLayout;
     public static MainClickerMiddleButton mainClickerMiddleButton;
-    public static BuyMenu buyMenu;
+
 
     public static void main(String[] args)
     {
@@ -99,6 +100,8 @@ public class Main
         buyAutoClickerPanelLayout.add(buyMenu);
 
         dmf.setVisible(true);
+
+        buyMenu.addPanels(shop.getItemList());
 
 
     }
