@@ -32,7 +32,7 @@ public class Shop
 
     public void saveItems() {
         for (ShopItem item : itemList) {
-            Main.fm.addValueByKey(item.getName(), "" + item.getAmount());
+            Main.fileManager.addValueByKey(item.getName(), "" + item.getAmount());
         }
     }
 
