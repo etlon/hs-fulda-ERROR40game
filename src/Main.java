@@ -21,12 +21,11 @@ public class Main
 
     public static void main(String[] args)
     {
-        int amountItems = 5;
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";
+        ToolManager.createFolderIfNotExist(folderName);
         shop = new Shop();
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
-        File theDir = new File(documentFolder + folderName);
         fm = new FileManager(documentFolder + folderName + "game.save");
 
         Thread as = new AutoSave(fm);
@@ -65,9 +64,12 @@ public class Main
         //String documentFolder = ToolManager.getDocumentPath();
         //String folderName = "/kittenclicker/";
         //File theDir = new File(documentFolder + folderName);
+        /*
         if (!theDir.exists()){
             theDir.mkdirs();
         }
+
+         */
 
         //fm = new FileManager(documentFolder + folderName + "game.save");
         //Thread as = new AutoSave(fm);
@@ -92,7 +94,7 @@ public class Main
 
         buyAutoClickerPanelLayout.add(amountTotalClicks);
 
-        //BuyMenu buyMenu = new BuyMenu(0,0, 182, dmf.getHeight()/2);
+        //buyMenu = new BuyMenu(0,0, 182, dmf.getHeight()/2);
 
         buyAutoClickerPanelLayout.add(buyMenu);
 
