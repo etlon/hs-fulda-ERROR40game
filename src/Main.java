@@ -1,6 +1,5 @@
-import layout.BuyAutoClickerPanelLayout;
-import layout.BuyMenu;
-import layout.MainClickerMiddleLayout;
+import buyables.ItemYarn;
+import layout.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -92,7 +91,8 @@ public class Main
 
 
         for(int i = 0; i < amountItems; i++) {
-
+            //0, i * (630 / amountItems),182,(630 / amountItems)
+            /*
             JLabel label = new JLabel();
             label.setOpaque(true);
             label.setBackground(Color.white);
@@ -103,6 +103,13 @@ public class Main
             label.setHorizontalAlignment(SwingConstants.CENTER);
 
             buyMenu.add(label);
+
+             */
+
+            ItemBuyButton button = new ItemBuyButton(new ItemYarn());
+            ItemBuyPanel panel = new ItemBuyPanel(0, i * (630 / amountItems),182, (630 / amountItems), button);
+            panel.setBackground(new Color(i*20, 0, 0));
+            buyMenu.add(panel);
         }
 
 
