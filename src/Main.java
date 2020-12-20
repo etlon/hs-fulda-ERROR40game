@@ -1,6 +1,7 @@
-import layout.BuyAutoClickerPanelLayout;
-import layout.BuyMenu;
-import layout.MainClickerMiddleLayout;
+import buyables.ItemGrandma;
+import buyables.ItemYarn;
+import buyables.ShopItem;
+import layout.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,15 +13,19 @@ public class Main
     public static AmountTotalClicksLabel amountTotalClicks;
     public static Shop shop;
     public static FileManager fm;
+    public static DefaultMainFrame dmf;
+    public static BuyAutoClickerPanelLayout buyAutoClickerPanelLayout;
+    public static MainClickerMiddleLayout mainClickerMiddleLayout;
+    public static MainClickerMiddleButton mainClickerMiddleButton;
+    public static BuyMenu buyMenu;
 
     public static void main(String[] args)
     {
-        int amountItems = 5;
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";
+        ToolManager.createFolderIfNotExist(folderName);
         shop = new Shop();
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
-        File theDir = new File(documentFolder + folderName);
         fm = new FileManager(documentFolder + folderName + "game.save");
 
         Thread as = new AutoSave(fm);
@@ -41,11 +46,11 @@ public class Main
 
 
         //amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
-        DefaultMainFrame dmf = new DefaultMainFrame(1280, 720);
-        BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
-        MainClickerMiddleLayout mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
-        MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - 150, mainClickerMiddleLayout.getHeight() / 2 - 150, 300, 300);
-        BuyMenu buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
+        dmf = new DefaultMainFrame(1280, 720);
+        buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
+        mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
+        mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - 150, mainClickerMiddleLayout.getHeight() / 2 - 150, 300, 300);
+        buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
 
         System.out.println("BuyAutoClickerPanelLayoutHeight: " + buyAutoClickerPanelLayout.getHeight());
         System.out.println("amountTotalClicksLabel: " + amountTotalClicks.getHeight());
@@ -59,9 +64,12 @@ public class Main
         //String documentFolder = ToolManager.getDocumentPath();
         //String folderName = "/kittenclicker/";
         //File theDir = new File(documentFolder + folderName);
+        /*
         if (!theDir.exists()){
             theDir.mkdirs();
         }
+
+         */
 
         //fm = new FileManager(documentFolder + folderName + "game.save");
         //Thread as = new AutoSave(fm);
@@ -86,34 +94,9 @@ public class Main
 
         buyAutoClickerPanelLayout.add(amountTotalClicks);
 
-        //BuyMenu buyMenu = new BuyMenu(0,0, 182, dmf.getHeight()/2);
+        //buyMenu = new BuyMenu(0,0, 182, dmf.getHeight()/2);
 
         buyAutoClickerPanelLayout.add(buyMenu);
-
-
-        for(int i = 0; i < amountItems; i++) {
-
-            JLabel label = new JLabel();
-            label.setOpaque(true);
-            label.setBackground(Color.white);
-            label.setBounds(0, i * (630 / amountItems),182,(630 / amountItems));
-            label.setBackground(new Color(i*(255/amountItems), i*(255/amountItems), i*(255/amountItems)));
-            label.setText("" + i);
-            label.setVerticalAlignment(SwingConstants.CENTER);
-            label.setHorizontalAlignment(SwingConstants.CENTER);
-
-            buyMenu.add(label);
-        }
-
-
-
-
-
-
-
-
-
-
 
         dmf.setVisible(true);
 

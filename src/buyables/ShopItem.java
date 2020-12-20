@@ -39,7 +39,7 @@ public abstract class ShopItem
         return this.amount;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 }
