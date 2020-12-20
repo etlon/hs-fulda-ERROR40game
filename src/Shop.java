@@ -20,6 +20,7 @@ public class Shop
 
     public void fillItemList(){
         //create every buyable item once and put it into "itemList"
+        itemList = new ShopItem[0];
     }
 
     public void saveItems(){
