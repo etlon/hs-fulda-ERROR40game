@@ -1,11 +1,8 @@
-import buyables.ItemGrandma;
-import buyables.ItemYarn;
-import buyables.ShopItem;
-import layout.*;
+package com;
 
-import javax.swing.*;
+import com.layout.*;
+
 import java.awt.*;
-import java.io.File;
 
 
 public class Main
@@ -33,7 +30,7 @@ public class Main
 
         /*
 
-        DefaultMainFrame
+        com.DefaultMainFrame
         |
         |---->BuyAutoClickerPanelLayout
         |     |-->amountTotalClicksLabel    height: 50px
@@ -46,7 +43,7 @@ public class Main
 
 
 
-        //amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
+        //amountTotalClicks = new com.AmountTotalClicksLabel(0, 0, 182, 50);
         dmf = new DefaultMainFrame(1280, 720);
         buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
@@ -58,11 +55,11 @@ public class Main
         System.out.println("BuyMenuHeight: " + buyMenu.getHeight());
 
         Thread income = new PassiveIncome(shop);
-        //shop = new Shop();
-        //Thread income = new PassiveIncome(shop);
+        //shop = new com.Shop();
+        //Thread income = new com.PassiveIncome(shop);
         income.start();
         as.start();
-        //String documentFolder = ToolManager.getDocumentPath();
+        //String documentFolder = com.ToolManager.getDocumentPath();
         //String folderName = "/kittenclicker/";
         //File theDir = new File(documentFolder + folderName);
         /*
@@ -72,8 +69,8 @@ public class Main
 
          */
 
-        //fm = new FileManager(documentFolder + folderName + "game.save");
-        //Thread as = new AutoSave(fm);
+        //fm = new com.FileManager(documentFolder + folderName + "game.save");
+        //Thread as = new com.AutoSave(fm);
 
 
         dmf.addWindowListener(new WindowEventListener(fm));

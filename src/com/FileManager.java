@@ -1,4 +1,6 @@
-import buyables.ShopItem;
+package com;
+
+import com.buyables.ShopItem;
 
 import java.io.*;
 import java.util.HashMap;

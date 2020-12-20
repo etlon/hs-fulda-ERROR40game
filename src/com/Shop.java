@@ -1,6 +1,8 @@
-import buyables.ItemGrandma;
-import buyables.ItemYarn;
-import buyables.ShopItem;
+package com;
+
+import com.buyables.ItemGrandma;
+import com.buyables.ItemYarn;
+import com.buyables.ShopItem;
 
 public class Shop
 {
