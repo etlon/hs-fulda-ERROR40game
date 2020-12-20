@@ -5,7 +5,7 @@
 - [x] create checklist
 - [x] first major update including auto-save, passive income and an animated cat
 - [ ] pretty icon
-- [ ] buyable upgrades for automation
+- [x] buyable upgrades for automation
 ## How to use
 You have two choices: 
 - you either open the program like every other .exe or
