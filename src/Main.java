@@ -109,8 +109,6 @@ public class Main {
             });
 
 
-            shopLabel[i] = label;
-
             buyMenu.add(label);
         }
 

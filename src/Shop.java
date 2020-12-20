@@ -45,7 +45,6 @@ public class Shop {
     public void buyItem(ShopItem item) {
         if (Main.amountTotalClicks.getDecimalCount().compareTo(new BigDecimal(item.getPrice())) >= 0) {
 
-
             Main.amountTotalClicks.increaseCounter(0 - item.getPrice());
             item.buy();
 
