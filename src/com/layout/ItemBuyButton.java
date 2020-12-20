@@ -24,7 +24,7 @@ public class ItemBuyButton extends JButton {
                 Main.amountTotalClicks.increaseCounter(String.valueOf(0 - itemPrice));
                 item.buy();
                 String name = item.getName();
-                String s = Main.amountTotalClicks.formatCounter(new BigDecimal(String.valueOf(itemPrice)));
+                String s = Main.amountTotalClicks.formatCounter(new BigDecimal(String.valueOf(item.getPrice())));
 
                 this.setText("<html>" + item.getName() +"<br />" + s + "<br/>" + item.getAmount() + "</html>");
                 System.out.println("gekauft: " + item.getName() + " " + itemPrice + " " + item.getAmount());
