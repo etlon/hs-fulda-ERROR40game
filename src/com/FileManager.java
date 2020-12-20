@@ -51,7 +51,7 @@ public class FileManager {
             while((newLine = br.readLine()) != null) {
 
                 //Escape character (#) for comments
-                //if(newLine.charAt(0) == '#') continue;
+                if(newLine.charAt(0) == '#') continue;
                 //Skips the current line if no equals (=) is found
                 if(!newLine.contains("=")) continue;
 
@@ -177,6 +177,9 @@ public class FileManager {
         BufferedWriter bw;
         try{
             bw = new BufferedWriter(new FileWriter(FILE));
+
+            bw.write("#syntax: key=value");
+            bw.newLine();
 
             for(String i : map.keySet()){
                 bw.write(i + "=" + map.get(i));
