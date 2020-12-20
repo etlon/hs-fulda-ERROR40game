@@ -13,8 +13,8 @@ public class BuyMenu extends JLabel {
         //this.setBorder(new EmptyBorder(0,10,0,0));
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
         this.setVerticalAlignment(JLabel.BOTTOM);
-        this.setOpaque(true);
-        this.setBackground(Color.WHITE);
+        //this.setOpaque(true);
+        //this.setBackground(new Color(0xBD0000));
 
 
     }
@@ -25,7 +25,8 @@ public class BuyMenu extends JLabel {
 
             ItemBuyButton button = new ItemBuyButton(list[i]);
             ItemBuyPanel panel = new ItemBuyPanel(0, i * (630 / list.length),182, (630 / list.length), button);
-            //panel.setBackground(new Color(i*20, 0, 0));
+            panel.setOpaque(false);
+            //panel.setBackground(new Color(0xD51515));
             this.add(panel);
         }
     }

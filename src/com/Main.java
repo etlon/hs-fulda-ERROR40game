@@ -4,26 +4,42 @@ import com.layout.*;
 
 import java.awt.*;
 
-        /*
 
-        com.DefaultMainFrame
-        |
-        |---->BuyAutoClickerPanelLayout
-        |     |-->amountTotalClicksLabel    height: 50px
-        |     |-->BuyMenu                   height: height - 50px
-        |---->MainClickerMiddleLayout
-              |-->mainClickerMiddleButton
-
-         */
 
 public class Main
 {
-    public static AmountTotalClicksLabel amountTotalClicks;
-    public static BuyMenu buyMenu;
+    /*
+
+     com.DefaultMainFrame
+     |
+     |---->BuyAutoClickerPanelLayout
+     |     |-->amountTotalClicksLabel    height: 50px
+     |     |-->BuyMenu                   height: height - 50px
+     |         |-->ItemBuyPanel
+     |             |-->ItemBuyButton
+     |---->MainClickerMiddleLayout
+     |     |-->MainClickerMiddleButton
+     */
+
+    /**
+     *
+     * @see DefaultMainFrame
+     * @see BuyAutoClickerPanelLayout
+     * @see AmountTotalClicksLabel
+     * @see BuyMenu
+     * @see ItemBuyPanel
+     * @see ItemBuyButton
+     * @see MainClickerMiddleLayout
+     * @see MainClickerMiddleButton
+     */
+
     public static Shop shop;
     public static FileManager fileManager;
+
     public static DefaultMainFrame defaultMainFrame;
     public static BuyAutoClickerPanelLayout buyAutoClickerPanelLayout;
+    public static AmountTotalClicksLabel amountTotalClicks;
+    public static BuyMenu buyMenu;
     public static MainClickerMiddleLayout mainClickerMiddleLayout;
     public static MainClickerMiddleButton mainClickerMiddleButton;
 
@@ -42,6 +58,8 @@ public class Main
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrame.getHeight());
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength);
         buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
+        buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
+
         //Multithreading
         new AutoSave(fileManager).start();
         new PassiveIncome(shop).start();
@@ -52,10 +70,10 @@ public class Main
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
+
+
         buyMenu.addPanels(shop.getItemList());
-
         defaultMainFrame.setVisible(true);
-
     }
 
 }

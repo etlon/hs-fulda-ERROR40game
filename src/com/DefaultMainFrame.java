@@ -1,6 +1,7 @@
 package com;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class DefaultMainFrame extends JFrame {
 
@@ -15,6 +16,7 @@ public class DefaultMainFrame extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(null);
+
     }
 
 }
