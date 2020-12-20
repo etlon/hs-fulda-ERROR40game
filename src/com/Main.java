@@ -4,6 +4,17 @@ import com.layout.*;
 
 import java.awt.*;
 
+        /*
+
+        com.DefaultMainFrame
+        |
+        |---->BuyAutoClickerPanelLayout
+        |     |-->amountTotalClicksLabel    height: 50px
+        |     |-->BuyMenu                   height: height - 50px
+        |---->MainClickerMiddleLayout
+              |-->mainClickerMiddleButton
+
+         */
 
 public class Main
 {
@@ -28,18 +39,6 @@ public class Main
 
         Thread as = new AutoSave(fm);
 
-        /*
-
-        com.DefaultMainFrame
-        |
-        |---->BuyAutoClickerPanelLayout
-        |     |-->amountTotalClicksLabel    height: 50px
-        |     |-->BuyMenu                   height: height - 50px
-        |---->MainClickerMiddleLayout
-              |-->mainClickerMiddleButton
-
-         */
-
         dmf = new DefaultMainFrame(1280, 720);
         buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
@@ -53,17 +52,8 @@ public class Main
 
         dmf.addWindowListener(new WindowEventListener(fm));
 
-        mainClickerMiddleButton.addActionListener(e ->
-        {
-            amountTotalClicks.increaseCounter();
-            Thread t = new ButtonAnim(mainClickerMiddleButton);
-            t.start();
-
-        });
-
-        //Adding BuyMenuLayout to MainFrame
         dmf.add(buyAutoClickerPanelLayout);
-        //Adding MiddleMenuLayout to MainFrame
+
         dmf.add(mainClickerMiddleLayout, BorderLayout.CENTER);
 
         mainClickerMiddleLayout.add(mainClickerMiddleButton);

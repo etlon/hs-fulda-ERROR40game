@@ -36,6 +36,12 @@ public class MainClickerMiddleButton extends JButton {
             this.setIcon(new ImageIcon(buttonIcon));
             this.setBorder(BorderFactory.createEmptyBorder());
             this.setContentAreaFilled(false);
+            this.addActionListener(e -> {
+                Main.amountTotalClicks.increaseCounter();
+                Thread t = new ButtonAnim(Main.mainClickerMiddleButton);
+                t.start();
+            });
+
         } catch(Exception e) {
             e.printStackTrace();
         }
