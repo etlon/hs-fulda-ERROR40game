@@ -1,6 +1,7 @@
 package com;
 
 import java.io.File;
+import java.math.BigDecimal;
 
 public class ToolManager {
 
@@ -26,6 +27,10 @@ public class ToolManager {
             return true;
         }
         return false;
+    }
+
+    public static int compareBigDecimal(BigDecimal bd1, BigDecimal bd2) {
+        return bd1.compareTo(bd2);
     }
 
 

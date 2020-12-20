@@ -71,7 +71,7 @@ public class AmountTotalClicksLabel extends JLabel {
         int counter=0;
         //gerade keine Lust ein Index Out of Bounds zu verhindern
         if(counter == 26) System.exit(0);
-
+        if(count.compareTo(new BigDecimal(1000)) <= 0) return String.valueOf(count);
         while (count.compareTo(new BigDecimal(1000))>=0) {
             count = count.divide(new BigDecimal(1000));
             counter++;

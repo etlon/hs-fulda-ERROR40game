@@ -13,7 +13,8 @@ public class ItemBuyButton extends JButton {
 
     public ItemBuyButton(ShopItem item) {
         this.item = item;
-        this.setText("<html>" + item.getName() +"<br />" + item.getPrice() + "<br/>" + item.getAmount() + "</html>");
+        String price = Main.amountTotalClicks.formatCounter(BigDecimal.valueOf(item.getPrice()));
+        this.setText("<html>" + item.getName() +"<br />" + price + "<br/>" + item.getAmount() + "</html>");
         this.setPreferredSize(new Dimension(120,100));
         this.setHorizontalAlignment(SwingConstants.CENTER);
         this.addActionListener(e -> {
@@ -23,8 +24,9 @@ public class ItemBuyButton extends JButton {
                 Main.amountTotalClicks.increaseCounter(String.valueOf(0 - itemPrice));
                 item.buy();
                 String name = item.getName();
+                String s = Main.amountTotalClicks.formatCounter(new BigDecimal(String.valueOf(itemPrice)));
 
-                this.setText("<html>" + item.getName() +"<br />" + item.getPrice() + "<br/>" + item.getAmount() + "</html>");
+                this.setText("<html>" + item.getName() +"<br />" + s + "<br/>" + item.getAmount() + "</html>");
                 System.out.println("gekauft: " + item.getName() + " " + itemPrice + " " + item.getAmount());
             }
         });
