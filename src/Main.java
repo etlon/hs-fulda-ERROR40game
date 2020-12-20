@@ -1,4 +1,5 @@
 import layout.BuyAutoClickerPanelLayout;
+import layout.BuyLabel;
 import layout.BuyMenu;
 import layout.MainClickerMiddleLayout;
 
@@ -90,10 +91,9 @@ public class Main {
 
         for (int i = 0; i < amountItems; i++) {
 
-            JLabel label = new JLabel();
+            BuyLabel label = new BuyLabel(0, i * (630 / amountItems), 182, (630 / amountItems));
             label.setOpaque(true);
             label.setBackground(Color.white);
-            label.setBounds(0, i * (630 / amountItems), 182, (630 / amountItems));
             label.setBackground(new Color(i * (255 / amountItems), i * (255 / amountItems), i * (255 / amountItems)));
             label.setText("" + i);
             label.setVerticalAlignment(SwingConstants.CENTER);

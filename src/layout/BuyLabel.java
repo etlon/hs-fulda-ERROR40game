@@ -8,6 +8,10 @@ public class BuyLabel extends JLabel {
 
     BufferedImage image;
 
+    public BuyLabel(int x, int y, int width, int height) {
+        this.setBounds(x, y, width, height);
+
+    }
 
     public BuyLabel(int x, int y, int width, int height, String fileName) {
         this.setBounds(x, y, width, height);
