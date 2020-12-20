@@ -37,18 +37,13 @@ public class Main
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
         fm = new FileManager(documentFolder + folderName + "game.save");
 
-        Thread as = new AutoSave(fm);
-
         dmf = new DefaultMainFrame(1280, 720);
         buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - 150, mainClickerMiddleLayout.getHeight() / 2 - 150, 300, 300);
         buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
-
-        Thread income = new PassiveIncome(shop);
-
-        income.start();
-        as.start();
+        new AutoSave(fm).start();
+        new PassiveIncome(shop).start();
 
         dmf.addWindowListener(new WindowEventListener(fm));
 
@@ -62,10 +57,9 @@ public class Main
 
         buyAutoClickerPanelLayout.add(buyMenu);
 
-        dmf.setVisible(true);
-
         buyMenu.addPanels(shop.getItemList());
 
+        dmf.setVisible(true);
 
     }
 
