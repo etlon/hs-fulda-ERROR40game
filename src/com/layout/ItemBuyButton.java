@@ -17,12 +17,11 @@ public class ItemBuyButton extends JButton {
         this.setPreferredSize(new Dimension(120,100));
         this.addActionListener(e -> {
             BigDecimal dm = new BigDecimal(Main.amountTotalClicks.getCount());
-            if(dm.compareTo(new BigDecimal("" + item.getPrice())) >= 0) {
+            double itemPrice = item.getPrice();
+            if(dm.compareTo(new BigDecimal(String.valueOf(itemPrice))) >= 0) {
+                Main.amountTotalClicks.increaseCounter(String.valueOf(0 - itemPrice));
                 item.buy();
-                Main.amountTotalClicks.increaseCounter(String.valueOf(0 - item.getPrice()));
-                System.out.println("gekauft: " + item.getName() + " " + item.getPrice());
-            } else {
-                System.out.println("izz nicht");
+                System.out.println("gekauft: " + item.getName() + " " + itemPrice + " " + item.getAmount());
             }
         });
     }
