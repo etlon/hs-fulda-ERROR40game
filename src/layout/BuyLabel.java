@@ -1,21 +1,26 @@
 package layout;
 
+import buyables.ShopItem;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
 
 public class BuyLabel extends JLabel {
 
+    ShopItem item;
     BufferedImage image;
 
-    public BuyLabel(int x, int y, int width, int height) {
+    public BuyLabel(int x, int y, int width, int height, ShopItem item) {
         this.setBounds(x, y, width, height);
+        this.item=item;
 
     }
 
-    public BuyLabel(int x, int y, int width, int height, String fileName) {
+    public BuyLabel(int x, int y, int width, int height,ShopItem item, String fileName) {
         this.setBounds(x, y, width, height);
         this.setImage(fileName);
+        this.item=item;
     }
 
     public boolean setImage(String fileName) {
@@ -25,6 +30,11 @@ public class BuyLabel extends JLabel {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public ShopItem getItem()
+    {
+        return item;
     }
 
 

@@ -91,7 +91,7 @@ public class Main {
 
         for (int i = 0; i < amountItems; i++) {
 
-            BuyLabel label = new BuyLabel(0, i * (630 / amountItems), 182, (630 / amountItems));
+            BuyLabel label = new BuyLabel(0, i * (630 / amountItems), 182, (630 / amountItems),shop.getItemList()[i]);
             label.setOpaque(true);
             label.setBackground(Color.white);
             label.setBackground(new Color(i * (255 / amountItems), i * (255 / amountItems), i * (255 / amountItems)));
@@ -103,7 +103,7 @@ public class Main {
                 @Override
                 public void mouseReleased(MouseEvent e) {
                     if (e.isPopupTrigger() || e.getButton() == MouseEvent.BUTTON1) {
-                        shop.buyItem(shop.getClickedItem(label, shopLabel));
+                        shop.buyItem(label.getItem());
                     }
                 }
             });

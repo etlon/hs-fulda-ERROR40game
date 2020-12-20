@@ -2,7 +2,6 @@ import buyables.ItemGrandma;
 import buyables.ItemYarn;
 import buyables.ShopItem;
 
-import javax.swing.*;
 import java.math.BigDecimal;
 
 public class Shop {
@@ -42,14 +41,6 @@ public class Shop {
         return itemList;
     }
 
-    public ShopItem getClickedItem(JLabel label, JLabel[] labelArray) {
-        for (int i = 0; i < labelArray.length; i++) {
-            if (labelArray[i].equals(label)) {
-                return itemList[i];
-            }
-        }
-        return null;
-    }
 
     public void buyItem(ShopItem item) {
         if (Main.amountTotalClicks.getDecimalCount().compareTo(new BigDecimal(item.getPrice())) >= 0) {

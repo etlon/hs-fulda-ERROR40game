@@ -1,6 +1,9 @@
 package buyables;
 
-public class ItemYarn extends ShopItem {
+
+
+public class ItemYarn extends ShopItem
+{
 
     public ItemYarn() {
         this.name = "Yarn";
