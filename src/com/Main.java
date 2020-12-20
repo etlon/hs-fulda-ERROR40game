@@ -40,10 +40,6 @@ public class Main
 
          */
 
-
-
-
-        //amountTotalClicks = new com.AmountTotalClicksLabel(0, 0, 182, 50);
         dmf = new DefaultMainFrame(1280, 720);
         buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, dmf.getHeight());
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, dmf.getHeight());
@@ -55,23 +51,9 @@ public class Main
         System.out.println("BuyMenuHeight: " + buyMenu.getHeight());
 
         Thread income = new PassiveIncome(shop);
-        //shop = new com.Shop();
-        //Thread income = new com.PassiveIncome(shop);
+
         income.start();
         as.start();
-        //String documentFolder = com.ToolManager.getDocumentPath();
-        //String folderName = "/kittenclicker/";
-        //File theDir = new File(documentFolder + folderName);
-        /*
-        if (!theDir.exists()){
-            theDir.mkdirs();
-        }
-
-         */
-
-        //fm = new com.FileManager(documentFolder + folderName + "game.save");
-        //Thread as = new com.AutoSave(fm);
-
 
         dmf.addWindowListener(new WindowEventListener(fm));
 
@@ -91,8 +73,6 @@ public class Main
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
 
         buyAutoClickerPanelLayout.add(amountTotalClicks);
-
-        //buyMenu = new BuyMenu(0,0, 182, dmf.getHeight()/2);
 
         buyAutoClickerPanelLayout.add(buyMenu);
 
