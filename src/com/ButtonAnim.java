@@ -1,3 +1,5 @@
+package com;
+
 public class ButtonAnim extends Thread {
     MainClickerMiddleButton button;
 

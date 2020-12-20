@@ -1,3 +1,5 @@
+package com;
+
 public class PassiveIncome extends Thread {
     private Shop shop;
 

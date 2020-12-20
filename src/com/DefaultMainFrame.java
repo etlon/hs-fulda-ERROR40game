@@ -1,3 +1,5 @@
+package com;
+
 import javax.swing.*;
 
 public class DefaultMainFrame extends JFrame {

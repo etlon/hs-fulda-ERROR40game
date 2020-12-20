@@ -1,7 +1,9 @@
-import layout.BuyAutoClickerPanelLayout;
-import layout.BuyLabel;
-import layout.BuyMenu;
-import layout.MainClickerMiddleLayout;
+package com;
+
+import com.layout.BuyAutoClickerPanelLayout;
+import com.layout.BuyLabel;
+import com.layout.BuyMenu;
+import com.layout.MainClickerMiddleLayout;
 
 import javax.swing.*;
 import java.awt.*;
@@ -92,7 +94,6 @@ public class Main {
         for (int i = 0; i < amountItems; i++) {
 
             BuyLabel label = new BuyLabel(0, i * (630 / amountItems), 182, (630 / amountItems),shop.getItemList()[i]);
-
 
             label.addMouseListener(new MouseAdapter() {
                 @Override

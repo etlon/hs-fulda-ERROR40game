@@ -1,6 +1,6 @@
-package layout;
+package com.layout;
 
-import buyables.ShopItem;
+import com.buyables.ShopItem;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

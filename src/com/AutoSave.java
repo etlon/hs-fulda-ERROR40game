@@ -1,3 +1,5 @@
+package com;
+
 public class AutoSave extends Thread {
 
     private FileManager fm;

@@ -1,8 +1,8 @@
+package com;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class MainClickerMiddleButton extends JButton {
@@ -32,7 +32,7 @@ public class MainClickerMiddleButton extends JButton {
 
         try {
             BufferedImage buttonIcon = //ImageIO.read(new File("bongocatresized.png"));
-                    ImageIO.read(getClass().getResource("/assets/bongocatresized.png"));
+                    ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
             this.setIcon(new ImageIcon(buttonIcon));
             this.setBorder(BorderFactory.createEmptyBorder());
             this.setContentAreaFilled(false);
@@ -48,8 +48,8 @@ public class MainClickerMiddleButton extends JButton {
         {
             Thread.sleep(100);
 
-            BufferedImage buttonIcon = //ImageIO.read(new File("/bongocatresized75.png"));
-                    ImageIO.read(getClass().getResource("/assets/bongocatresized75.png"));
+            BufferedImage buttonIcon = //ImageIO.read(new File("com/bongocatresized75.png"));
+                    ImageIO.read(getClass().getResource("/com/assets/bongocatresized75.png"));
             this.setIcon(new ImageIcon(buttonIcon));
             this.setBorder(BorderFactory.createEmptyBorder());
             this.setContentAreaFilled(false);
@@ -60,7 +60,7 @@ public class MainClickerMiddleButton extends JButton {
 
 
             buttonIcon = //ImageIO.read(new File("bongocatresized.png"));
-                    ImageIO.read(getClass().getResource("/assets/bongocatresized.png"));
+                    ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
             this.setIcon(new ImageIcon(buttonIcon));
             this.setBorder(BorderFactory.createEmptyBorder());
             this.setContentAreaFilled(false);

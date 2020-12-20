@@ -1,4 +1,4 @@
-package buyables;
+package com.buyables;
 
 
 public abstract class ShopItem {
