@@ -1,10 +1,7 @@
 package com;
 
 import com.layout.*;
-
 import java.awt.*;
-
-
 
 public class Main
 {
@@ -59,6 +56,7 @@ public class Main
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength);
         buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
+        mainClickerMiddleLayout.setBackground(new Color(0xFFFFFF));
 
         //Multithreading
         new AutoSave(fileManager).start();
@@ -70,7 +68,6 @@ public class Main
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
-
 
         buyMenu.addPanels(shop.getItemList());
         defaultMainFrame.setVisible(true);
