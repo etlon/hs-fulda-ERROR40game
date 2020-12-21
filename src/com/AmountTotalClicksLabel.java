@@ -52,12 +52,12 @@ public class AmountTotalClicksLabel extends JLabel {
 
     public void increaseCounter(double amount) {
         count = count.add(new BigDecimal(amount));
-        this.setText(formatCounter(count));
+        this.setText(ToolManager.formatCounter(count));
     }
 
     public void increaseCounter(String amount){
         count = count.add(new BigDecimal(amount));
-        this.setText(formatCounter(count));
+        this.setText(ToolManager.formatCounter(count));
     }
 
 
@@ -66,7 +66,7 @@ public class AmountTotalClicksLabel extends JLabel {
      * @param count count to be shortened and having an
      * unit added to them
      */
-
+    /*
     public String formatCounter(BigDecimal count){
 
         int counter=0;
@@ -80,6 +80,8 @@ public class AmountTotalClicksLabel extends JLabel {
 
         return df.format(count.doubleValue()) + suffixArray[counter];
     }
+    ("0.000");
+     */
 
     /**
      * returns current count as String
