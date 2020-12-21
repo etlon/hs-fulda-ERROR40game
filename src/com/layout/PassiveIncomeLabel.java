@@ -14,7 +14,7 @@ public class PassiveIncomeLabel extends JLabel {
         this.setBounds(x,y,width,height);
         this.setBorder(new EmptyBorder(0,10,0,0));
         this.updatePassiveIncome();
-        this.setFont(new Font("Arial Black", Font.PLAIN, 30));
+        this.setFont(new Font("Arial Black", Font.PLAIN, 18));
 
     }
 
