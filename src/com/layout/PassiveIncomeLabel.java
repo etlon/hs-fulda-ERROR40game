@@ -4,6 +4,7 @@ import com.Main;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.math.BigDecimal;
 
 public class PassiveIncomeLabel extends JLabel {
 
@@ -12,12 +13,12 @@ public class PassiveIncomeLabel extends JLabel {
 
         this.setBounds(x,y,width,height);
         this.setBorder(new EmptyBorder(0,10,0,0));
-        this.setText(String.valueOf(Main.shop.getIncome()));
+        this.updatePassiveIncome();
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));
 
     }
 
     public void updatePassiveIncome(){
-        this.setText(String.valueOf(Main.shop.getIncome()));
+        this.setText(Main.amountTotalClicks.formatCounter(new BigDecimal(String.valueOf(Main.shop.getIncome()))));
     }
 }
