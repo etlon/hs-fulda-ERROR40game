@@ -28,6 +28,7 @@ public class ItemBuyButton extends JButton {
 
                 this.setText("<html>" + item.getName() +"<br />" + s + "<br/>" + item.getAmount() + "</html>");
                 System.out.println("gekauft: " + item.getName() + " " + itemPrice + " " + item.getAmount());
+                Main.passiveIncomeLabel.updatePassiveIncome();
             }
         });
     }
