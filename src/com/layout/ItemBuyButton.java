@@ -10,10 +10,17 @@ import java.math.BigDecimal;
 
 public class ItemBuyButton extends JButton {
 
-    ShopItem item;
+    private ShopItem item;
+    private ItemBuyButton[] buttons;
+    private int index;
 
-    public ItemBuyButton(ShopItem item) {
+    public ItemBuyButton(ItemBuyButton[] buttons, int index, ShopItem item) {
         this.item = item;
+        this.buttons=buttons;
+        this.index=index;
+        if(this.index!=0){
+            if(buttons[this.index-1].getItem().getAmount()==0) super.setEnabled(false);
+        }
         String price = ToolManager.formatCounter(BigDecimal.valueOf(item.getPrice()));
         this.setText("<html>" + item.getName() +"<br />" + price + "<br/>" + item.getAmount() + "</html>");
         this.setPreferredSize(new Dimension(120,100));
@@ -29,8 +36,17 @@ public class ItemBuyButton extends JButton {
 
                 this.setText("<html>" + item.getName() +"<br />" + s + "<br/>" + item.getAmount() + "</html>");
                 System.out.println("gekauft: " + item.getName() + " " + itemPrice + " " + item.getAmount());
+
+                if(item.getAmount()>0&&index< buttons.length-1)
+                {
+                    buttons[index+1].setEnabled(true);
+                }
             }
         });
+    }
+    private ShopItem getItem()
+    {
+        return item;
     }
 
 
