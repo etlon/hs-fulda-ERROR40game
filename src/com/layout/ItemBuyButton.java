@@ -20,7 +20,10 @@ public class ItemBuyButton extends JButton {
         this.index=index;
         if(this.index!=0){
             if(buttons[this.index-1].getItem().getAmount()==0) super.setEnabled(false);
+            else this.runBuyableTest();
         }
+        else this.runBuyableTest();
+
         String price = ToolManager.formatCounter(BigDecimal.valueOf(item.getPrice()));
         this.setText("<html>" + item.getName() +"<br />" + price + "<br/>" + item.getAmount() + "</html>");
         this.setPreferredSize(new Dimension(120,100));
@@ -40,6 +43,7 @@ public class ItemBuyButton extends JButton {
                 if(item.getAmount()>0&&index< buttons.length-1)
                 {
                     buttons[index+1].setEnabled(true);
+                    buttons[index+1].runBuyableTest();
                 }
             }
         });
@@ -47,6 +51,12 @@ public class ItemBuyButton extends JButton {
     private ShopItem getItem()
     {
         return item;
+    }
+
+    private void runBuyableTest()
+    {
+        Thread t=new IsItemBuyableThread(item,this);
+        t.start();
     }
 
 
