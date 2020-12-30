@@ -42,6 +42,7 @@ public class Main
     public static BuyMenu buyMenu;
     public static MainClickerMiddleLayout mainClickerMiddleLayout;
     public static MainClickerMiddleButton mainClickerMiddleButton;
+    public static PassiveIncomeLabel passiveIncomeLabel;
 
     public static void main(String[] args)
     {

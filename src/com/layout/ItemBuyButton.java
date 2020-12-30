@@ -1,6 +1,7 @@
 package com.layout;
 
 import com.Main;
+import com.ToolManager;
 import com.buyables.ShopItem;
 
 import javax.swing.*;
