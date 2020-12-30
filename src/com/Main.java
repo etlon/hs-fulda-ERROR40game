@@ -39,6 +39,7 @@ public class Main
     public static BuyMenu buyMenu;
     public static MainClickerMiddleLayout mainClickerMiddleLayout;
     public static MainClickerMiddleButton mainClickerMiddleButton;
+    public static PassiveIncomeLabel passiveIncomeLabel;
 
     public static void main(String[] args)
     {
@@ -57,6 +58,7 @@ public class Main
         buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
         mainClickerMiddleLayout.setBackground(new Color(0xFFFFFF));
+        passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50); //location will be discussed with other members
 
         //Multithreading
         new AutoSave(fileManager).start();
@@ -65,6 +67,7 @@ public class Main
         defaultMainFrame.addWindowListener(new WindowEventListener(fileManager));
         defaultMainFrame.add(buyAutoClickerPanelLayout);
         defaultMainFrame.add(mainClickerMiddleLayout, BorderLayout.CENTER);
+        defaultMainFrame.add(passiveIncomeLabel);
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
@@ -74,5 +77,3 @@ public class Main
     }
 
 }
-
-
