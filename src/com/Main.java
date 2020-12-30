@@ -40,6 +40,7 @@ public class Main
     public static MainClickerMiddleLayout mainClickerMiddleLayout;
     public static MainClickerMiddleButton mainClickerMiddleButton;
     public static PassiveIncomeLabel passiveIncomeLabel;
+    public static MainClickerBackgroundLabel mainClickerBackgroundLabel;
 
     public static void main(String[] args)
     {
@@ -55,9 +56,9 @@ public class Main
         buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, defaultMainFrame.getHeight());
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrame.getHeight());
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength);
+        mainClickerBackgroundLabel = new MainClickerBackgroundLabel(0, 0, 1000, defaultMainFrame.getHeight());
         buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
-        mainClickerMiddleLayout.setBackground(new Color(0xFFFFFF));
         passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50); //location will be discussed with other members
 
         //Multithreading
@@ -69,6 +70,7 @@ public class Main
         defaultMainFrame.add(mainClickerMiddleLayout, BorderLayout.CENTER);
         defaultMainFrame.add(passiveIncomeLabel);
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
+        mainClickerMiddleLayout.add(mainClickerBackgroundLabel);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
 
