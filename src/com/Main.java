@@ -1,10 +1,7 @@
 package com;
 
 import com.layout.*;
-
 import java.awt.*;
-
-
 
 public class Main
 {
@@ -70,15 +67,13 @@ public class Main
         defaultMainFrame.addWindowListener(new WindowEventListener(fileManager));
         defaultMainFrame.add(buyAutoClickerPanelLayout);
         defaultMainFrame.add(mainClickerMiddleLayout, BorderLayout.CENTER);
+        defaultMainFrame.add(passiveIncomeLabel);
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
-
 
         buyMenu.addPanels(shop.getItemList());
         defaultMainFrame.setVisible(true);
     }
 
 }
-
-
