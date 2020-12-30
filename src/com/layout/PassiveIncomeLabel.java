@@ -1,8 +1,11 @@
 package com.layout;
 
 import com.Main;
+import com.ToolManager;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.tools.Tool;
 import java.awt.*;
 import java.math.BigDecimal;
 
@@ -19,6 +22,6 @@ public class PassiveIncomeLabel extends JLabel {
     }
 
     public void updatePassiveIncome(){
-        this.setText("<html>" + "per sec" +"<br />" + Main.amountTotalClicks.formatCounter(new BigDecimal(String.valueOf(Main.shop.getIncome()))) + "</html>");
+        this.setText("<html>" + "per sec" +"<br />" + ToolManager.formatCounter(new BigDecimal(String.valueOf(Main.shop.getIncome()))) + "</html>");
     }
 }
