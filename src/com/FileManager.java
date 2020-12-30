@@ -13,13 +13,13 @@ public class FileManager {
      */
 
 
-
     private final String PATH;
     private final File FILE;
     private HashMap<String, String> map = new HashMap<>();
 
     /**
      * Constructor method of this class. Stores the parameter (path of a file) in a final variable.
+     *
      * @param path the path of the file to be read in
      */
 
@@ -29,7 +29,7 @@ public class FileManager {
         FILE = new File(PATH);
 
         try {
-            if(!FILE.exists()) FILE.createNewFile();
+            if (!FILE.exists()) FILE.createNewFile();
             else this.load();
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,20 +48,20 @@ public class FileManager {
         try {
             br = new BufferedReader(new FileReader(FILE));
             String newLine;
-            while((newLine = br.readLine()) != null) {
+            while ((newLine = br.readLine()) != null) {
 
                 //Escape character (#) for comments
-                if(newLine.charAt(0) == '#') continue;
+                if (newLine.charAt(0) == '#') continue;
                 //Skips the current line if no equals (=) is found
-                if(!newLine.contains("=")) continue;
+                if (!newLine.contains("=")) continue;
 
                 String key = newLine.split("=")[0];
-                String value= newLine.split("=")[1];
+                String value = newLine.split("=")[1];
                 map.put(key, value);
             }
             br.close();
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -79,6 +79,7 @@ public class FileManager {
 
     /**
      * returns the value of a given key from the hashmap.
+     *
      * @param key the key is a property with a corresponding value
      * @return value
      */
@@ -89,7 +90,8 @@ public class FileManager {
 
     /**
      * adds value
-     * @param key the key is a property with a corresponding value
+     *
+     * @param key   the key is a property with a corresponding value
      * @param value the value to be put into hashmap
      */
 
@@ -102,34 +104,33 @@ public class FileManager {
      * overwrites all values
      */
 
-    public void save(){
+    public void save() {
 
         this.setValues();
 
         BufferedWriter bw;
-        try{
+        try {
             bw = new BufferedWriter(new FileWriter(FILE));
 
             bw.write("#syntax: key=value");
             bw.newLine();
 
-            for(String i : map.keySet()){
+            for (String i : map.keySet()) {
                 bw.write(i + "=" + map.get(i));
                 bw.newLine();
             }
             bw.close();
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /**
-     *  writes all important stats into hashmap
+     * writes all important stats into hashmap
      */
 
-    public void setValues(){
+    public void setValues() {
         this.addValueByKey("money", Main.amountTotalClicks.getCount());
         Main.shop.saveItems();
     }

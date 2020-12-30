@@ -1,6 +1,6 @@
 package com.buyables;
 
-public class ItemPremiumCatFood extends ShopItem{
+public class ItemPremiumCatFood extends ShopItem {
 
     public ItemPremiumCatFood() {
         this.name = "Premium Cat Food";

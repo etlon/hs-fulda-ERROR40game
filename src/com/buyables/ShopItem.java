@@ -2,8 +2,7 @@ package com.buyables;
 
 import java.text.DecimalFormat;
 
-public abstract class ShopItem
-{
+public abstract class ShopItem {
     protected double basePrice;
     protected int amount;
     protected double price;

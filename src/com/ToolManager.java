@@ -17,13 +17,12 @@ public class ToolManager {
     }
 
     /**
-     *
      * @param folderName
      * @return return true if folder was successfully created, false if it already exists
      */
     public static boolean createFolderIfNotExist(String folderName) {
         File f = new File(getDocumentPath() + folderName);
-        if (!f.exists()){
+        if (!f.exists()) {
             f.mkdirs();
             return true;
         }
@@ -34,14 +33,14 @@ public class ToolManager {
         return bd1.compareTo(bd2);
     }
 
-    public static String formatCounter(BigDecimal count){
+    public static String formatCounter(BigDecimal count) {
         DecimalFormat df = new DecimalFormat("0.000");
         char[] suffixArray = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        int counter=0;
+        int counter = 0;
         //gerade keine Lust ein Index Out of Bounds zu verhindern
-        if(counter == 26) System.exit(0);
-        if(count.compareTo(new BigDecimal(1000)) <= 0) return String.valueOf(count);
-        while (count.compareTo(new BigDecimal(1000))>=0) {
+        if (counter == 26) System.exit(0);
+        if (count.compareTo(new BigDecimal(1000)) <= 0) return String.valueOf(count);
+        while (count.compareTo(new BigDecimal(1000)) >= 0) {
             count = count.divide(new BigDecimal(1000));
             counter++;
         }

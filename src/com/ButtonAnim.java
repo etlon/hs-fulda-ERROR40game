@@ -1,10 +1,8 @@
 package com;
 
-public class ButtonAnim extends Thread
-{
+public class ButtonAnim extends Thread {
     MainClickerMiddleButton button;
     static boolean isRunning = false;
-
 
 
     ButtonAnim(MainClickerMiddleButton button) {
@@ -13,7 +11,7 @@ public class ButtonAnim extends Thread
 
 
     public void run() {
-        if(!isRunning) {
+        if (!isRunning) {
             isRunning = true;
 
             isRunning = false;

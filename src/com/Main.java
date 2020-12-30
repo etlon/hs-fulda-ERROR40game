@@ -1,11 +1,11 @@
 package com;
 
 import com.layout.*;
+
 import java.awt.*;
 import java.io.IOException;
 
-public class Main
-{
+public class Main {
     /*
 
      com.DefaultMainFrame
@@ -20,7 +20,6 @@ public class Main
      */
 
     /**
-     *
      * @see DefaultMainFrame
      * @see BuyAutoClickerPanelLayout
      * @see AmountTotalClicksLabel
@@ -57,7 +56,7 @@ public class Main
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrame.getHeight());
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength);
         mainClickerBackgroundLabel = new MainClickerBackgroundLabel(0, 0, 1000, defaultMainFrame.getHeight());
-        buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
+        buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
         passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50); //location will be discussed with other members
 

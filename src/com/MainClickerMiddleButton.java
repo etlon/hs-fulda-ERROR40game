@@ -53,7 +53,7 @@ public class MainClickerMiddleButton extends JButton {
     }
 
     public void doButtonAnimation() throws IOException {
-        if(isRunning) return;
+        if (isRunning) return;
 
         BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
         ImageIcon gif = new ImageIcon(this.getClass().getResource("/com/assets/bongocat.gif"));

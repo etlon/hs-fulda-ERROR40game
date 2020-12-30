@@ -1,6 +1,6 @@
 package com.buyables;
 
-public class ItemBlanket extends ShopItem{
+public class ItemBlanket extends ShopItem {
 
     public ItemBlanket() {
         this.name = "Blanket";

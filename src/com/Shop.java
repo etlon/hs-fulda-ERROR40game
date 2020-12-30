@@ -2,8 +2,7 @@ package com;
 
 import com.buyables.*;
 
-public class Shop
-{
+public class Shop {
 
     private ShopItem[] itemList;
 
