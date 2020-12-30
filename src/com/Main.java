@@ -1,7 +1,6 @@
 package com;
 
 import com.layout.*;
-
 import java.awt.*;
 
 public class Main
@@ -58,6 +57,7 @@ public class Main
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength);
         buyMenu = new BuyMenu(0,50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
+        mainClickerMiddleLayout.setBackground(new Color(0xFFFFFF));
         passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50); //location will be discussed with other members
 
         //Multithreading
