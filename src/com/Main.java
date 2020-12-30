@@ -2,6 +2,7 @@ package com;
 
 import com.layout.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class Main
 {
@@ -42,8 +43,7 @@ public class Main
     public static PassiveIncomeLabel passiveIncomeLabel;
     public static MainClickerBackgroundLabel mainClickerBackgroundLabel;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException {
         int middleClickerLength = 300;
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";
