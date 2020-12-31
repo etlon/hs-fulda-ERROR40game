@@ -1,10 +1,12 @@
+package com;
+
 import javax.swing.*;
+import java.awt.*;
 
 public class DefaultMainFrame extends JFrame {
 
     /**
-     *
-     * @param width width of the whole game
+     * @param width  width of the whole game
      * @param height height of the whole game
      */
 
@@ -13,6 +15,7 @@ public class DefaultMainFrame extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(null);
+
     }
 
 }
