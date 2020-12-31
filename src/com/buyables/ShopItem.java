@@ -34,6 +34,10 @@ public abstract class ShopItem {
         return this.price;
     }
 
+    public double getBaseIncome() {
+        return this.baseIncome;
+    }
+
     public double getIncome() {
         return amount * baseIncome;
     }

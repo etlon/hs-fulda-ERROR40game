@@ -18,6 +18,10 @@ public class ItemBuyButton extends JButton {
         this.item = item;
         this.buttons = buttons;
         this.index = index;
+        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>" + "total cps: " + item.getIncome() + "</html>");
+
+        UIManager.put("ToolTip.background", Color.white);
+
         if (this.index != 0) {
             if (buttons[this.index - 1].getItem().getAmount() == 0) super.setEnabled(false);
             else this.runBuyableTest();
