@@ -41,6 +41,7 @@ public class Main {
     public static MainClickerMiddleButton mainClickerMiddleButton;
     public static PassiveIncomeLabel passiveIncomeLabel;
     public static MainClickerBackgroundLabel mainClickerBackgroundLabel;
+    public static long startTime = System.currentTimeMillis();
 
     public static void main(String[] args) throws IOException {
         int middleClickerLength = 300;
