@@ -18,7 +18,7 @@ public class ItemBuyButton extends JButton {
         this.item = item;
         this.buttons = buttons;
         this.index = index;
-        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>" + "total cps: " + item.getIncome() + "</html>");
+        this.updateTooltip();
 
         UIManager.put("ToolTip.background", Color.white);
 
@@ -43,6 +43,7 @@ public class ItemBuyButton extends JButton {
                 this.setText("<html>" + item.getName() + "<br />" + s + "<br/>" + item.getAmount() + "</html>");
                 //System.out.println("gekauft: " + item.getName() + " " + itemPrice + " " + item.getAmount());
                 Main.passiveIncomeLabel.updatePassiveIncome();
+                this.updateTooltip();
 
                 if (item.getAmount() > 0 && index < buttons.length - 1) {
                     buttons[index + 1].setEnabled(true);
@@ -61,5 +62,8 @@ public class ItemBuyButton extends JButton {
         t.start();
     }
 
+    private void updateTooltip(){
+        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>" + "total cps: " + ToolManager.formatCounter(item.getIncome()) + "</html>");
+    }
 
 }

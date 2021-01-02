@@ -2,6 +2,8 @@ package com;
 
 import com.buyables.*;
 
+import java.math.BigDecimal;
+
 public class Shop {
 
     private ShopItem[] itemList;
@@ -10,10 +12,10 @@ public class Shop {
         this.fillItemList();
     }
 
-    public double getIncome() {
-        double income = 0;
+    public BigDecimal getIncome() {
+        BigDecimal income = new BigDecimal(0);
         for (ShopItem item : itemList) {
-            income += item.getIncome();
+            income.add(item.getIncome());
         }
         return income;
     }

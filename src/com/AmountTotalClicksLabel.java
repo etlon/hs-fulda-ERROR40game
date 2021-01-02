@@ -61,6 +61,11 @@ public class AmountTotalClicksLabel extends JLabel {
         this.setText(ToolManager.formatCounter(count));
     }
 
+    public void increaseCounter(BigDecimal amount) {
+        count = count.add(amount);
+        this.setText(ToolManager.formatCounter(count));
+    }
+
 
     /**
      * shortens long numbers for the counter

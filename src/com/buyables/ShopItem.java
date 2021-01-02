@@ -1,5 +1,6 @@
 package com.buyables;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 
 public abstract class ShopItem {
@@ -38,8 +39,8 @@ public abstract class ShopItem {
         return this.baseIncome;
     }
 
-    public double getIncome() {
-        return amount * baseIncome;
+    public BigDecimal getIncome() {
+        return new BigDecimal(amount * baseIncome);
     }
 
     public int getAmount() {
