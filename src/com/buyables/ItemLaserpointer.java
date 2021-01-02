@@ -6,6 +6,6 @@ public class ItemLaserpointer extends ShopItem{
         this.name = "Laserpointer";
         this.amount = 0;
         this.basePrice = 720000;
-        this.baseIncome = 360;
+        this.baseIncome = 1540;
     }
 }
