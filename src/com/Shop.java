@@ -20,13 +20,15 @@ public class Shop {
 
     public void fillItemList() {
         //create every buyable item once and put it into "itemList"
-        itemList = new ShopItem[5];
+        itemList = new ShopItem[7];
         //Created just for testing purposes need further updates
         itemList[0] = new ItemYarn();
         itemList[1] = new ItemBlanket();
         itemList[2] = new ItemPremiumFood();
         itemList[3] = new ItemGrandma();
         itemList[4] = new ItemDJKittenz();
+        itemList[5] = new ItemLaserpointer();
+        itemList[6] = new ItemMagicalTree();
     }
 
     public void saveItems() {
