@@ -38,7 +38,9 @@ public class ToolManager {
         char[] suffixArray = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
         int counter = 0;
         //gerade keine Lust ein Index Out of Bounds zu verhindern
-        if (counter == 26) System.exit(0);
+        if (counter >= 26) {
+            df.format(count.doubleValue() + "INF");
+        }
         if (count.compareTo(new BigDecimal(1000)) <= 0) return String.valueOf(count);
         while (count.compareTo(new BigDecimal(1000)) >= 0) {
             count = count.divide(new BigDecimal(1000));
