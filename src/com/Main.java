@@ -41,6 +41,7 @@ public class Main {
     public static MainClickerMiddleButton mainClickerMiddleButton;
     public static PassiveIncomeLabel passiveIncomeLabel;
     public static MainClickerBackgroundLabel mainClickerBackgroundLabel;
+    public static Villain villain;
     public static long startTime = System.currentTimeMillis();
 
     public static void main(String[] args) throws IOException {
@@ -60,6 +61,7 @@ public class Main {
         buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
         passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50); //location will be discussed with other members
+        villain = new Villain(100, 100);
 
         //Multithreading
         new AutoSave(fileManager).start();
@@ -71,8 +73,10 @@ public class Main {
         defaultMainFrame.add(passiveIncomeLabel);
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
         mainClickerMiddleLayout.add(mainClickerBackgroundLabel);
+        mainClickerMiddleLayout.add(villain);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
+
 
         buyMenu.addPanels(shop.getItemList());
         defaultMainFrame.setVisible(true);
