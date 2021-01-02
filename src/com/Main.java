@@ -44,7 +44,7 @@ public class Main {
     public static Villain villain;
     public static long startTime = System.currentTimeMillis();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         int middleClickerLength = 300;
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";

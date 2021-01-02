@@ -20,7 +20,7 @@ public class MainClickerMiddleButton extends JButton {
     int height;
     boolean isRunning;
 
-    public MainClickerMiddleButton(int x, int y, int width, int height) throws IOException {
+    public MainClickerMiddleButton(int x, int y, int width, int height) {
 
         this.xCord = x;
         this.yCord = y;
@@ -40,8 +40,8 @@ public class MainClickerMiddleButton extends JButton {
 
                 try {
                     doButtonAnimation();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                } catch (Exception exc) {
+                    exc.printStackTrace();
                 }
 
             });
@@ -52,20 +52,21 @@ public class MainClickerMiddleButton extends JButton {
 
     }
 
-    public void doButtonAnimation() throws IOException {
+    public void doButtonAnimation()  {
         if (isRunning) return;
 
-        BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
-        ImageIcon gif = new ImageIcon(this.getClass().getResource("/com/assets/bongocat.gif"));
+
 
         new Thread(() -> {
             this.isRunning = true;
 
             try {
+                BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
+                ImageIcon gif = new ImageIcon(this.getClass().getResource("/com/assets/bongocat.gif"));
                 setIcon(gif);
                 Thread.sleep(600);
                 setIcon(new ImageIcon(buttonIcon));
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
