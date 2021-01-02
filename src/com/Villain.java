@@ -31,7 +31,7 @@ public class Villain extends JButton {
 
         new Thread(() -> {
             try {
-                Thread.sleep(0);
+                Thread.sleep(10*60*1000); //10 minutes
 
                 while (true) {
                     while (!isSpawned) {
@@ -60,7 +60,7 @@ public class Villain extends JButton {
                         this.x = randomX;
                         this.y = randomY;
 
-                        int random = 5 * 1000;//ThreadLocalRandom.current().nextInt(0, 10*60*1000);
+                        int random = ThreadLocalRandom.current().nextInt(0, 10*60*1000);
                         Thread.sleep(random);
                         this.setBounds(x, y, width, height);
                         //this.setBackground(Color.red);
