@@ -24,7 +24,7 @@ public class Shop {
         //Created just for testing purposes need further updates
         itemList[0] = new ItemYarn();
         itemList[1] = new ItemBlanket();
-        itemList[2] = new ItemPremiumCatFood();
+        itemList[2] = new ItemPremiumFood();
         itemList[3] = new ItemGrandma();
         itemList[4] = new ItemDJKittenz();
     }
