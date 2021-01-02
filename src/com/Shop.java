@@ -15,7 +15,7 @@ public class Shop {
     public BigDecimal getIncome() {
         BigDecimal income = new BigDecimal(0);
         for (ShopItem item : itemList) {
-            income.add(item.getIncome());
+            income = income.add(item.getIncome());
         }
         return income;
     }

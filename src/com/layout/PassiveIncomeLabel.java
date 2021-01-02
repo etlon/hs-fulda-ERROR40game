@@ -22,6 +22,6 @@ public class PassiveIncomeLabel extends JLabel {
     }
 
     public void updatePassiveIncome() {
-        this.setText("<html>" + "per sec" + "<br />" + ToolManager.formatCounter(new BigDecimal(String.valueOf(Main.shop.getIncome()))) + "</html>");
+        this.setText("<html>" + "per sec" + "<br />" + ToolManager.formatCounter(Main.shop.getIncome()) + "</html>");
     }
 }
