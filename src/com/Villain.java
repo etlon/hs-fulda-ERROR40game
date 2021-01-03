@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Villain extends JButton {
@@ -13,7 +14,12 @@ public class Villain extends JButton {
     private int y;
     private  int width;
     private  int height;
+    private DecimalFormat df;
     private static boolean isSpawned;
+    private static int startCooldown = 10*60*1000;
+    private static int minTimeCooldown = 2*60*1000;
+    private static int maxTimeCooldown = 7*60*1000;
+    private static double percentageLossVillain = 0.5;
 
     public Villain(int buttonWidth, int buttonHeight) {
 
@@ -31,6 +37,7 @@ public class Villain extends JButton {
         }
 
 
+        df = new DecimalFormat("0");
         isSpawned = false;
         spawnVillain();
         this.addActionListener(e -> {
@@ -43,7 +50,7 @@ public class Villain extends JButton {
 
         new Thread(() -> {
             try {
-                Thread.sleep(0); //10 minutes -> initial countdown
+                Thread.sleep(startCooldown); //10 minutes -> initial countdown
 
                 while (true) {
                     while (!isSpawned) {
@@ -72,8 +79,8 @@ public class Villain extends JButton {
                         this.x = randomX;
                         this.y = randomY;
 
-                        int random = ThreadLocalRandom.current().nextInt(0, 10*60*1000);
-                        Thread.sleep(5*1000);
+                        int random = ThreadLocalRandom.current().nextInt(minTimeCooldown, maxTimeCooldown);
+                        Thread.sleep(random);
 
                         this.setBounds(x, y, width, height);
 
@@ -85,8 +92,9 @@ public class Villain extends JButton {
                     }
                     while(isSpawned){
                         BigDecimal currentMoney = new BigDecimal(Main.amountTotalClicks.getCount());
-                        currentMoney = currentMoney.multiply(BigDecimal.valueOf(0.0005));
-                        //Main.amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
+                        currentMoney = currentMoney.multiply(BigDecimal.valueOf(percentageLossVillain / 100));
+                        currentMoney = new BigDecimal(df.format(currentMoney.doubleValue()));
+                        Main.amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
                         Thread.sleep(1000);
                     }
                     Thread.sleep(1000);
