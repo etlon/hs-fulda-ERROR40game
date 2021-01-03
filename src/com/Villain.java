@@ -92,9 +92,11 @@ public class Villain extends JButton {
                     }
                     while(isSpawned){
                         BigDecimal currentMoney = new BigDecimal(Main.amountTotalClicks.getCount());
-                        currentMoney = currentMoney.multiply(BigDecimal.valueOf(percentageLossVillain / 100));
-                        currentMoney = new BigDecimal(df.format(currentMoney.doubleValue()));
-                        Main.amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
+                        if(ToolManager.compareBigDecimal(currentMoney, new BigDecimal(5)) > 1) {
+                            currentMoney = currentMoney.multiply(BigDecimal.valueOf(percentageLossVillain / 100));
+                            currentMoney = new BigDecimal(df.format(currentMoney.doubleValue()));
+                            Main.amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
+                        }
                         Thread.sleep(1000);
                     }
                     Thread.sleep(1000);
