@@ -53,15 +53,17 @@ public class Main {
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
         fileManager = new FileManager(documentFolder + folderName + "game.save");
         //Setting Layout
+
         defaultMainFrame = new DefaultMainFrame(1280, 720);
         buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, defaultMainFrame.getHeight());
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrame.getHeight());
         mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength);
         mainClickerBackgroundLabel = new MainClickerBackgroundLabel(0, 0, 1000, defaultMainFrame.getHeight());
         buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
+        villain = new Villain(50, 50);
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
         passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50); //location will be discussed with other members
-        villain = new Villain(100, 100);
+
 
         //Multithreading
         new AutoSave(fileManager).start();
@@ -73,7 +75,7 @@ public class Main {
         defaultMainFrame.add(passiveIncomeLabel);
         mainClickerMiddleLayout.add(mainClickerMiddleButton);
         mainClickerMiddleLayout.add(mainClickerBackgroundLabel);
-        mainClickerMiddleLayout.add(villain);
+        mainClickerBackgroundLabel.add(villain);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
 

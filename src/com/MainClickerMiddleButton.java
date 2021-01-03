@@ -3,7 +3,6 @@ package com;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class MainClickerMiddleButton extends JButton {
 
@@ -43,19 +42,15 @@ public class MainClickerMiddleButton extends JButton {
                 } catch (Exception exc) {
                     exc.printStackTrace();
                 }
-
             });
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    public void doButtonAnimation()  {
+    public void doButtonAnimation() {
         if (isRunning) return;
-
-
 
         new Thread(() -> {
             this.isRunning = true;
