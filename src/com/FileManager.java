@@ -66,8 +66,8 @@ public class FileManager {
         }
 
         Main.amountTotalClicks.increaseCounter(getValueByKey("money"));
-        ToolManager.idleFarm(Long.parseLong(getValueByKey("closeTime")), 1, Main.shop, Main.amountTotalClicks);
         this.loadItems();
+        ToolManager.idleFarm(Long.parseLong(getValueByKey("closeTime")), 1, Main.shop, Main.amountTotalClicks);
     }
 
     public void loadItems() {
