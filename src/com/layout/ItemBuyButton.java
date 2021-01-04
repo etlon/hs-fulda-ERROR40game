@@ -7,6 +7,7 @@ import com.buyables.ShopItem;
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 public class ItemBuyButton extends JButton {
 
@@ -15,6 +16,7 @@ public class ItemBuyButton extends JButton {
     private int index;
 
     public ItemBuyButton(ItemBuyButton[] buttons, int index, ShopItem item) {
+        DecimalFormat df = new DecimalFormat("0");
         this.item = item;
         this.buttons = buttons;
         this.index = index;
@@ -27,7 +29,7 @@ public class ItemBuyButton extends JButton {
             else this.runBuyableTest();
         } else this.runBuyableTest();
 
-        String price = ToolManager.formatCounter(BigDecimal.valueOf(item.getPrice()));
+        String price = ToolManager.formatCounter(new BigDecimal(df.format(item.getPrice())));
         this.setText("<html>" + item.getName() + "<br />" + price + "<br/>" + item.getAmount() + "</html>");
         this.setPreferredSize(new Dimension(120, 100));
         this.setHorizontalAlignment(SwingConstants.CENTER);
@@ -35,7 +37,7 @@ public class ItemBuyButton extends JButton {
             BigDecimal dm = new BigDecimal(Main.amountTotalClicks.getCount());
             double itemPrice = item.getPrice();
             if (dm.compareTo(new BigDecimal(String.valueOf(itemPrice))) >= 0) {
-                Main.amountTotalClicks.increaseCounter(String.valueOf(0 - itemPrice));
+                Main.amountTotalClicks.increaseCounter(df.format(0 - itemPrice));
                 item.buy();
                 String name = item.getName();
                 String s = ToolManager.formatCounter(new BigDecimal(String.valueOf(item.getPrice())));
