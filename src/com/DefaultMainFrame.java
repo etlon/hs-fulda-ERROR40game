@@ -15,6 +15,8 @@ public class DefaultMainFrame extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.setLayout(null);
+        ImageIcon img = new ImageIcon(this.getClass().getResource("/com/assets/windowsicon.png"));
+        this.setIconImage(img.getImage());
 
     }
 

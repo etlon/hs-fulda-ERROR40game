@@ -2,6 +2,7 @@ package com;
 
 import com.layout.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
@@ -78,7 +79,6 @@ public class Main {
         mainClickerBackgroundLabel.add(villain);
         buyAutoClickerPanelLayout.add(amountTotalClicks);
         buyAutoClickerPanelLayout.add(buyMenu);
-
 
         buyMenu.addPanels(shop.getItemList());
         defaultMainFrame.setVisible(true);
