@@ -53,6 +53,17 @@ public class ToolManager {
         return df.format(count.doubleValue()) + suffixArray[counter];
     }
 
+    public static void idleFarm(long startTime, long percentage, Shop shop, AmountTotalClicksLabel label) {
+        long currentTime = System.currentTimeMillis();
+        int diff = (int) (currentTime - startTime);
+        if(diff > 24*60*60*1000) diff = 24*60*60*1000;
+        diff /= 1000; //time in seconds
+
+        BigDecimal score = new BigDecimal(String.valueOf(shop.getIncome()));
+        score = score.multiply(new BigDecimal(percentage / 100));
+        score = score.multiply(BigDecimal.valueOf(diff));
+        label.increaseCounter(score);
+    }
 
 }
 
