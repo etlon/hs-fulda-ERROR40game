@@ -1,5 +1,7 @@
 package com;
 
+import com.layout.MainClickerMiddleLayout;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
@@ -19,11 +21,17 @@ public class Villain extends JButton {
     private static int minTimeCooldown = 2 * 60 * 1000;
     private static int maxTimeCooldown = 7 * 60 * 1000;
     private static double percentageLossVillain = 0.5;
+    private MainClickerMiddleLayout mainClickerMiddleLayout;
+    private MainClickerMiddleButton mainClickerMiddleButton;
+    private AmountTotalClicksLabel amountTotalClicks;
 
-    public Villain(int buttonWidth, int buttonHeight) {
+    public Villain(int buttonWidth, int buttonHeight, MainClickerMiddleLayout mainClickerMiddleLayout, MainClickerMiddleButton mainClickerMiddleButton, AmountTotalClicksLabel amountTotalClicks) {
 
         this.width = buttonWidth;
         this.height = buttonHeight;
+        this.mainClickerMiddleLayout = mainClickerMiddleLayout;
+        this.mainClickerMiddleButton = mainClickerMiddleButton;
+        this.amountTotalClicks = amountTotalClicks;
 
         try {
             BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/normaldogvillain.png"));
@@ -53,15 +61,15 @@ public class Villain extends JButton {
                 while (true) {
                     while (!isSpawned) {
 
-                        int maxWidth = Main.mainClickerMiddleLayout.getWidth() - width;
-                        int maxHeight = Main.mainClickerMiddleLayout.getHeight() - height;
+                        int maxWidth = mainClickerMiddleLayout.getWidth() - width;
+                        int maxHeight = mainClickerMiddleLayout.getHeight() - height;
                         int randomX;
                         int randomY;
 
-                        int buttonXleft = Main.mainClickerMiddleButton.getX();
-                        int buttonXright = Main.mainClickerMiddleButton.getX() + Main.mainClickerMiddleButton.getWidth();
-                        int buttonYtop = Main.mainClickerMiddleButton.getY();
-                        int buttonYbottom = Main.mainClickerMiddleButton.getY() + Main.mainClickerMiddleButton.getHeight();
+                        int buttonXleft = mainClickerMiddleButton.getX();
+                        int buttonXright = mainClickerMiddleButton.getX() + mainClickerMiddleButton.getWidth();
+                        int buttonYtop = mainClickerMiddleButton.getY();
+                        int buttonYbottom = mainClickerMiddleButton.getY() + mainClickerMiddleButton.getHeight();
 
                         int allowedXleft = buttonXleft - width;
                         int allowedXright = buttonXright;
@@ -84,11 +92,11 @@ public class Villain extends JButton {
                         this.show();
                     }
                     while (isSpawned) {
-                        BigDecimal currentMoney = new BigDecimal(Main.amountTotalClicks.getCount());
+                        BigDecimal currentMoney = new BigDecimal(amountTotalClicks.getCount());
                         if (ToolManager.compareBigDecimal(currentMoney, new BigDecimal(5)) > 1) {
                             currentMoney = currentMoney.multiply(BigDecimal.valueOf(percentageLossVillain / 100));
                             currentMoney = new BigDecimal(df.format(currentMoney.doubleValue()));
-                            Main.amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
+                            amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
                         }
                         Thread.sleep(1000);
                     }

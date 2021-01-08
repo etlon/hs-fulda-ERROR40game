@@ -18,14 +18,16 @@ public class MainClickerMiddleButton extends JButton {
     int width;
     int height;
     boolean isRunning;
+    AmountTotalClicksLabel amountTotalClicks;
 
-    public MainClickerMiddleButton(int x, int y, int width, int height) {
+    public MainClickerMiddleButton(int x, int y, int width, int height, AmountTotalClicksLabel amountTotalClicks) {
 
         this.xCord = x;
         this.yCord = y;
         this.width = width;
         this.height = height;
         this.isRunning = false;
+        this.amountTotalClicks = amountTotalClicks;
 
         this.setBounds(this.xCord, this.yCord, this.width, this.height);
 
@@ -35,7 +37,7 @@ public class MainClickerMiddleButton extends JButton {
             this.setBorder(BorderFactory.createEmptyBorder());
             this.setContentAreaFilled(false);
             this.addActionListener(e -> {
-                Main.amountTotalClicks.increaseCounter();
+                amountTotalClicks.increaseCounter();
 
                 try {
                     doButtonAnimation();

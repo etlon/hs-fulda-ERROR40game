@@ -1,19 +1,19 @@
 package com.layout;
 
-import com.Main;
+import com.Shop;
 import com.ToolManager;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.tools.Tool;
 import java.awt.*;
-import java.math.BigDecimal;
 
 public class PassiveIncomeLabel extends JLabel {
 
+    private Shop shop;
 
-    public PassiveIncomeLabel(int x, int y, int width, int height) {
+    public PassiveIncomeLabel(int x, int y, int width, int height, Shop shop) {
 
+        this.shop = shop;
         this.setBounds(x, y, width, height);
         this.setBorder(new EmptyBorder(0, 5, 0, 0));
         this.updatePassiveIncome();
@@ -22,6 +22,6 @@ public class PassiveIncomeLabel extends JLabel {
     }
 
     public void updatePassiveIncome() {
-        this.setText("<html>" + "per sec" + "<br />" + ToolManager.formatCounter(Main.shop.getIncome()) + "</html>");
+        this.setText("<html>" + "per sec" + "<br />" + ToolManager.formatCounter(shop.getIncome()) + "</html>");
     }
 }

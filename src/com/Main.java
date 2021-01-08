@@ -58,17 +58,17 @@ public class Main {
         defaultMainFrame = new DefaultMainFrame(1280, 720);
         buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, defaultMainFrame.getHeight());
         mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrame.getHeight());
-        mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength);
+        mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength, amountTotalClicks);
         mainClickerBackgroundLabel = new MainClickerBackgroundLabel(0, 0, 1000, defaultMainFrame.getHeight());
-        buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight())); //85
-        villain = new Villain(50, 50);
+        passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50, shop);
+        buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight()), amountTotalClicks, passiveIncomeLabel); //85
+        villain = new Villain(50, 50, mainClickerMiddleLayout, mainClickerMiddleButton, amountTotalClicks);
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
-        passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50); //location will be discussed with other members
 
 
         //Multithreading
         new AutoSave(fileManager).start();
-        new PassiveIncome(shop).start();
+        new PassiveIncome(shop, amountTotalClicks).start();
         //Adding all components
         defaultMainFrame.addWindowListener(new WindowEventListener(fileManager));
         defaultMainFrame.add(buyAutoClickerPanelLayout);
