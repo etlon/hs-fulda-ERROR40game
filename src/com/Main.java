@@ -52,7 +52,7 @@ public class Main {
         ToolManager.createFolderIfNotExist(folderName);
         shop = new Shop();
         amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
-        fileManager = new FileManager(documentFolder + folderName + "game.save");
+        fileManager = new FileManager(documentFolder + folderName + "game.save", shop, amountTotalClicks);
         //Setting Layout
 
         defaultMainFrame = new DefaultMainFrame(1280, 720);

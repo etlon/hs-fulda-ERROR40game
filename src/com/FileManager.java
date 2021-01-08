@@ -16,6 +16,8 @@ public class FileManager {
     private final String PATH;
     private final File FILE;
     private HashMap<String, String> map = new HashMap<>();
+    private Shop shop;
+    private AmountTotalClicksLabel amountTotalClicks;
 
     /**
      * Constructor method of this class. Stores the parameter (path of a file) in a final variable.
@@ -23,8 +25,10 @@ public class FileManager {
      * @param path the path of the file to be read in
      */
 
-    public FileManager(String path) {
+    public FileManager(String path, Shop shop, AmountTotalClicksLabel amountTotalClicks) {
 
+        this.shop = shop;
+        this.amountTotalClicks = amountTotalClicks;
         this.PATH = path;
         FILE = new File(PATH);
 
@@ -65,13 +69,13 @@ public class FileManager {
             e.printStackTrace();
         }
 
-        Main.amountTotalClicks.increaseCounter(getValueByKey("money"));
+        amountTotalClicks.increaseCounter(getValueByKey("money"));
         this.loadItems();
-        ToolManager.idleFarm(Long.parseLong(getValueByKey("closeTime")), 1, Main.shop, Main.amountTotalClicks);
+        ToolManager.idleFarm(Long.parseLong(getValueByKey("closeTime")), 1, shop, amountTotalClicks);
     }
 
     public void loadItems() {
-        ShopItem[] items = Main.shop.getItemList();
+        ShopItem[] items = shop.getItemList();
         for (ShopItem item : items) {
             int amount = Integer.parseInt(this.getValueByKey(item.getName()));
             item.setAmount(amount);
@@ -132,8 +136,8 @@ public class FileManager {
      */
 
     public void setValues() {
-        this.addValueByKey("money", Main.amountTotalClicks.getCount());
+        this.addValueByKey("money", amountTotalClicks.getCount());
         this.addValueByKey("closeTime", String.valueOf(System.currentTimeMillis()));
-        Main.shop.saveItems();
+        shop.saveItems();
     }
 }
