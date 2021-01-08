@@ -138,6 +138,8 @@ public class FileManager {
     public void setValues() {
         this.addValueByKey("money", amountTotalClicks.getCount());
         this.addValueByKey("closeTime", String.valueOf(System.currentTimeMillis()));
-        shop.saveItems();
+        for(ShopItem item : shop.getItemList()){
+            this.addValueByKey(item.getName(), "" + item.getAmount());
+        }
     }
 }

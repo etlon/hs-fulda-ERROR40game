@@ -31,12 +31,6 @@ public class Shop {
         };
     }
 
-    public void saveItems() {
-        for (ShopItem item : itemList) {
-            Main.fileManager.addValueByKey(item.getName(), "" + item.getAmount());
-        }
-    }
-
     public int getAmountItems() {
         return itemList.length;
     }
