@@ -2,9 +2,7 @@ package com;
 
 import com.layout.*;
 
-import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class Main {
     /*
@@ -31,38 +29,24 @@ public class Main {
      * @see MainClickerMiddleButton
      */
 
-    public static Shop shop;
-    public static FileManager fileManager;
-
-    public static DefaultMainFrame defaultMainFrame;
-    public static BuyAutoClickerPanelLayout buyAutoClickerPanelLayout;
-    public static AmountTotalClicksLabel amountTotalClicks;
-    public static BuyMenu buyMenu;
-    public static MainClickerMiddleLayout mainClickerMiddleLayout;
-    public static MainClickerMiddleButton mainClickerMiddleButton;
-    public static PassiveIncomeLabel passiveIncomeLabel;
-    public static MainClickerBackgroundLabel mainClickerBackgroundLabel;
-    public static Villain villain;
-    public static long startTime = System.currentTimeMillis();
-
     public static void main(String[] args) {
         int middleClickerLength = 300;
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";
         ToolManager.createFolderIfNotExist(folderName);
-        shop = new Shop();
-        amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
-        fileManager = new FileManager(documentFolder + folderName + "game.save", shop, amountTotalClicks);
-        //Setting Layout
+        Shop shop = new Shop();
+        AmountTotalClicksLabel amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
+        FileManager fileManager = new FileManager(documentFolder + folderName + "game.save", shop, amountTotalClicks);
 
-        defaultMainFrame = new DefaultMainFrame(1280, 720);
-        buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, defaultMainFrame.getHeight());
-        mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrame.getHeight());
-        mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength, amountTotalClicks);
-        mainClickerBackgroundLabel = new MainClickerBackgroundLabel(0, 0, 1000, defaultMainFrame.getHeight());
-        passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50, shop);
-        buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight()), amountTotalClicks, passiveIncomeLabel); //85
-        villain = new Villain(50, 50, mainClickerMiddleLayout, mainClickerMiddleButton, amountTotalClicks);
+        //Setting Layout
+        DefaultMainFrame defaultMainFrame = new DefaultMainFrame(1280, 720);
+        BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, defaultMainFrame.getHeight());
+        MainClickerMiddleLayout mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrame.getHeight());
+        MainClickerMiddleButton mainClickerMiddleButton = new MainClickerMiddleButton(mainClickerMiddleLayout.getWidth() / 2 - middleClickerLength / 2, mainClickerMiddleLayout.getHeight() / 2 - middleClickerLength / 2, middleClickerLength, middleClickerLength, amountTotalClicks);
+        MainClickerBackgroundLabel mainClickerBackgroundLabel = new MainClickerBackgroundLabel(0, 0, 1000, defaultMainFrame.getHeight());
+        PassiveIncomeLabel passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50, shop);
+        BuyMenu buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight()), amountTotalClicks, passiveIncomeLabel); //85
+        Villain villain = new Villain(50, 50, mainClickerMiddleLayout, mainClickerMiddleButton, amountTotalClicks);
         buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
 
 
