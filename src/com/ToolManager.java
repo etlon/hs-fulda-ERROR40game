@@ -51,7 +51,7 @@ public class ToolManager {
 
         DecimalFormat df = new DecimalFormat("0.000");
         char[] suffixArray = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-                'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+            'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
         return df.format(count.doubleValue()) + suffixArray[counter];
     }
 

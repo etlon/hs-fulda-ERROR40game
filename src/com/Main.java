@@ -38,7 +38,7 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        int midClickerLength = 300;
+
         String documentFolder = ToolManager.getDocumentPath();
         String folderName = "/kittenclicker/";
         ToolManager.createFolderIfNotExist(folderName);
@@ -63,6 +63,7 @@ public class Main {
         PassiveIncomeLabel passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50, shop);
         defaultMainFrame.add(passiveIncomeLabel);
 
+        int midClickerLength = 300;
         int mainClickerX = mainClickerMiddleLayout.getWidth() / 2 - midClickerLength / 2;
         int mainClickerY = mainClickerMiddleLayout.getHeight() / 2 - midClickerLength / 2;
         MainClickerMiddleButton mainClickerButton = new MainClickerMiddleButton(

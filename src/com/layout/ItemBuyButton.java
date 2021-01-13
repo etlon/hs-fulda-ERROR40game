@@ -1,14 +1,15 @@
 package com.layout;
 
 import com.AmountTotalClicksLabel;
-import com.Main;
 import com.ToolManager;
 import com.buyables.ShopItem;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 public class ItemBuyButton extends JButton {
 
@@ -18,7 +19,8 @@ public class ItemBuyButton extends JButton {
     private AmountTotalClicksLabel amountTotalClicks;
     private PassiveIncomeLabel passiveIncomeLabel;
 
-    public ItemBuyButton(ItemBuyButton[] buttons, int index, ShopItem item, AmountTotalClicksLabel amountTotalClicks, PassiveIncomeLabel passiveIncomeLabel) {
+    public ItemBuyButton(ItemBuyButton[] buttons, int index, ShopItem item,
+                         AmountTotalClicksLabel amountTotalClicks, PassiveIncomeLabel passiveIncomeLabel) {
         DecimalFormat df = new DecimalFormat("0");
         this.item = item;
         this.buttons = buttons;
@@ -69,8 +71,9 @@ public class ItemBuyButton extends JButton {
         t.start();
     }
 
-    private void updateTooltip(){
-        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>" + "total cps: " + ToolManager.formatCounter(item.getIncome()) + "</html>");
+    private void updateTooltip() {
+        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>" +
+                "total cps: " + ToolManager.formatCounter(item.getIncome()) + "</html>");
     }
 
 }
