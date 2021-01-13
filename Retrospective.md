@@ -1,7 +1,7 @@
 # Sprint Retrospective
 
-
-#### preset we used: https://retromat.org/en/?id=3-116-8-117-83
+## adding the shop
+preset we used: https://retromat.org/en/?id=3-116-8-117-83
 
 ### set the stage (Check In - Quick Question):
 - Cedric:
@@ -63,3 +63,4 @@
   - 70%
   - 95%
   - 100%
+
