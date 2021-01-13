@@ -15,6 +15,8 @@ public class Main {
      |         |-->ItemBuyPanel
      |             |-->ItemBuyButton
      |---->MainClickerMiddleLayout
+     |     |-->MainClickerBackgroundLabel
+     |         |-->Villain
      |     |-->MainClickerMiddleButton
      */
 
@@ -37,7 +39,6 @@ public class Main {
         Shop shop = new Shop();
         AmountTotalClicksLabel amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
         FileManager fileManager = new FileManager(documentFolder + folderName + "game.save", shop, amountTotalClicks);
-
         //Setting Layout
         DefaultMainFrame defaultMainFrame = new DefaultMainFrame(1280, 720);
         BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, defaultMainFrame.getHeight());
@@ -47,9 +48,6 @@ public class Main {
         PassiveIncomeLabel passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50, shop);
         BuyMenu buyMenu = new BuyMenu(0, 50, 182, (buyAutoClickerPanelLayout.getHeight() - amountTotalClicks.getHeight()), amountTotalClicks, passiveIncomeLabel); //85
         Villain villain = new Villain(50, 50, mainClickerMiddleLayout, mainClickerMiddleButton, amountTotalClicks);
-        buyAutoClickerPanelLayout.setBackground(new Color(0x6AFF11));
-
-
         //Multithreading
         new AutoSave(fileManager).start();
         new PassiveIncome(shop, amountTotalClicks).start();
