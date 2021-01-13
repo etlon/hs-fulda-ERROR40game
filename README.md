@@ -7,7 +7,7 @@
 - [x] pretty icon
 - [x] buyable upgrades for automation
 ## How to use
-You have two choices: 
+You have two choices:
 - you either open the program like every other .exe or
 - you open the cmd/powershell, locate your jar file and type in
 ```java -jar KittenClicker.jar```
@@ -19,9 +19,9 @@ Windows only!
 You can download the latest release [here](https://github.com/etlon/hs-fulda-ERROR40game/releases)
 
 ## FAQ
-#### Where is the game.save file located?
+### Where is the game.save file located?
 - The game.save file is located in your documents folder
-#### How do I save my current progress?
+### How do I save my current progress?
 - Your progress will be saved automatically every 10 minutes or by closing the game via the X in the top right corner of your game
-#### I lost my progress
+### I lost my progress
 - Just edit the game.save file
