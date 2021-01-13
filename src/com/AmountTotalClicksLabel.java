@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 public class AmountTotalClicksLabel extends JLabel {
 
     private BigDecimal count = new BigDecimal(0);
-    DecimalFormat df;
+    private DecimalFormat df;
 
     /**
      * @param x      origin of label on x axis
