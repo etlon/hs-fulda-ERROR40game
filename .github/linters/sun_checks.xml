@@ -70,6 +70,7 @@
         <module name="NeedBraces">
             <property name="tokens"
                       value="LITERAL_DO, LITERAL_ELSE, LITERAL_FOR, LITERAL_IF, LITERAL_WHILE"/>
+            <property name="severity" value="warning"/>
         </module>
         <module name="LeftCurly">
             <property name="tokens"
