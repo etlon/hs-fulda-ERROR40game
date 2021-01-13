@@ -50,7 +50,7 @@ preset we used: [retromat](https://retromat.org/en/?id=3-116-8-117-83)
   - stackoverflow
   - I complete it this day
 
-### close the retroperspective (Retro Dart):
+### close the retroperspective (Retro Dart)
 - Cedric:
   - 60%
   - 95%
