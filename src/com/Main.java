@@ -1,13 +1,12 @@
 package com;
 
 import com.layout.BuyAutoClickerPanelLayout;
-import com.layout.MainClickerBackgroundLabel;
-import com.layout.MainClickerMiddleLayout;
-import com.layout.PassiveIncomeLabel;
 import com.layout.BuyMenu;
 import com.layout.ItemBuyButton;
 import com.layout.ItemBuyPanel;
-
+import com.layout.MainClickerBackgroundLabel;
+import com.layout.MainClickerMiddleLayout;
+import com.layout.PassiveIncomeLabel;
 import java.awt.BorderLayout;
 
 
@@ -46,27 +45,32 @@ public class Main {
         Shop shop = new Shop();
         AmountTotalClicksLabel amountTotalClicks = new AmountTotalClicksLabel(0, 0, 182, 50);
         FileManager fileManager = new FileManager(documentFolder + folderName + "game.save", shop, amountTotalClicks);
-        //Setting Layout
         DefaultMainFrame defaultMainFrame = new DefaultMainFrame(1280, 720);
-        
-        int defMainFrameHeight = defaultMainFrame.getHeight();
-        BuyAutoClickerPanelLayout buyAutoClickerPanelLayout = new BuyAutoClickerPanelLayout(0, 0, 182, defMainFrameHeight);
-        MainClickerMiddleLayout mainClickerMiddleLayout = new MainClickerMiddleLayout(182, 0, 1000, defMainFrameHeight);
-        
-        int mainClickerX = mainClickerMiddleLayout.getWidth() / 2 - midClickerLength / 2;
-        int mainClickerY = mainClickerMiddleLayout.getHeight() / 2 - midClickerLength / 2;
-        MainClickerMiddleButton mainClickerButton = new MainClickerMiddleButton(mainClickerX, mainClickerY, midClickerLength, midClickerLength, amountTotalClicks);
-        PassiveIncomeLabel passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50, shop);
-        //Multithreading
+
         new AutoSave(fileManager).start();
         new PassiveIncome(shop, amountTotalClicks).start();
-        //Adding all components
+
         defaultMainFrame.addWindowListener(new WindowEventListener(fileManager));
+        int defaultMainFrameHeight = defaultMainFrame.getHeight();
+        BuyAutoClickerPanelLayout buyAutoClickerPanelLayout =
+                new BuyAutoClickerPanelLayout(0, 0, 182, defaultMainFrameHeight);
+
+        MainClickerMiddleLayout mainClickerMiddleLayout =
+                new MainClickerMiddleLayout(182, 0, 1000, defaultMainFrameHeight);
+
         defaultMainFrame.add(buyAutoClickerPanelLayout);
         defaultMainFrame.add(mainClickerMiddleLayout, BorderLayout.CENTER);
+        PassiveIncomeLabel passiveIncomeLabel = new PassiveIncomeLabel(1182, 0, 182, 50, shop);
         defaultMainFrame.add(passiveIncomeLabel);
+
+        int mainClickerX = mainClickerMiddleLayout.getWidth() / 2 - midClickerLength / 2;
+        int mainClickerY = mainClickerMiddleLayout.getHeight() / 2 - midClickerLength / 2;
+        MainClickerMiddleButton mainClickerButton = new MainClickerMiddleButton(
+                mainClickerX, mainClickerY, midClickerLength, midClickerLength, amountTotalClicks);
+
         mainClickerMiddleLayout.add(mainClickerButton);
-        MainClickerBackgroundLabel mainClickerBackgroundLabel = new MainClickerBackgroundLabel(0, 0, 1000, defMainFrameHeight);
+        MainClickerBackgroundLabel mainClickerBackgroundLabel =
+                new MainClickerBackgroundLabel(0, 0, 1000, defaultMainFrameHeight);
         mainClickerMiddleLayout.add(mainClickerBackgroundLabel);
 
         Villain villain = new Villain(50, 50, mainClickerMiddleLayout, mainClickerButton, amountTotalClicks);

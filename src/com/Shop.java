@@ -32,7 +32,7 @@ public class Shop {
             new ItemPremiumFood(),
             new ItemGrandma(),
             new ItemDjKittenz()
-        };
+          };
     }
 
     public ShopItem[] getItemList() {

@@ -2,9 +2,9 @@ package com;
 
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class MainClickerMiddleButton extends JButton {
 
