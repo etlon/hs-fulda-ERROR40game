@@ -299,7 +299,9 @@
             <property name="allowSamelineMultipleAnnotations" value="true"/>
         </module>
         <module name="NonEmptyAtclauseDescription"/>
-        <module name="InvalidJavadocPosition"/>
+        <module name="InvalidJavadocPosition">
+            <property name="severity" value="warning"/>
+        </module>
         <module name="JavadocTagContinuationIndentation"/>
         <module name="SummaryJavadoc">
             <property name="forbiddenSummaryFragments"
