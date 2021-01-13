@@ -1,8 +1,10 @@
 package com;
 
 import com.buyables.ShopItem;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.util.HashMap;
 
 public class FileManager {
@@ -115,7 +117,7 @@ public class FileManager {
 
         BufferedWriter bw;
         try {
-            bw = new BufferedWriter(new FileWriter(FILE));
+            bw = new BufferedWriter(new java.io.FileWriter(FILE));
 
             bw.write("#syntax: key=value");
             bw.newLine();
@@ -138,7 +140,7 @@ public class FileManager {
     public void setValues() {
         this.addValueByKey("money", amountTotalClicks.getCount());
         this.addValueByKey("closeTime", String.valueOf(System.currentTimeMillis()));
-        for(ShopItem item : shop.getItemList()){
+        for (ShopItem item : shop.getItemList()) {
             this.addValueByKey(item.getName(), "" + item.getAmount());
         }
     }

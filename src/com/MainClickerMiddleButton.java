@@ -1,10 +1,19 @@
 package com;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.BorderFactory;
 
 public class MainClickerMiddleButton extends JButton {
+
+    int x;
+    int y;
+    int width;
+    int height;
+    boolean isRunning;
+    AmountTotalClicksLabel amountTotalClicks;
 
     /**
      * @param x origin of button on x axis
@@ -13,23 +22,16 @@ public class MainClickerMiddleButton extends JButton {
      * @param height height of button
      */
 
-    int xCord;
-    int yCord;
-    int width;
-    int height;
-    boolean isRunning;
-    AmountTotalClicksLabel amountTotalClicks;
-
     public MainClickerMiddleButton(int x, int y, int width, int height, AmountTotalClicksLabel amountTotalClicks) {
 
-        this.xCord = x;
-        this.yCord = y;
+        this.x = x;
+        this.y = y;
         this.width = width;
         this.height = height;
         this.isRunning = false;
         this.amountTotalClicks = amountTotalClicks;
 
-        this.setBounds(this.xCord, this.yCord, this.width, this.height);
+        this.setBounds(this.x, this.y, this.width, this.height);
 
         try {
             BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));

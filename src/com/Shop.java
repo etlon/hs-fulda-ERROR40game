@@ -1,7 +1,11 @@
 package com;
 
-import com.buyables.*;
-
+import com.buyables.ItemBlanket;
+import com.buyables.ItemGrandma;
+import com.buyables.ItemPremiumFood;
+import com.buyables.ItemDJKittenz;
+import com.buyables.ItemYarn;
+import com.buyables.ShopItem;
 import java.math.BigDecimal;
 
 public class Shop {
@@ -23,16 +27,12 @@ public class Shop {
     public void fillItemList() {
         //create every buyable item once and put it into "itemList"
         itemList = new ShopItem[]{
-                new ItemYarn(),
-                new ItemBlanket(),
-                new ItemPremiumFood(),
-                new ItemGrandma(),
-                new ItemDJKittenz()
+            new ItemYarn(),
+            new ItemBlanket(),
+            new ItemPremiumFood(),
+            new ItemGrandma(),
+            new ItemDJKittenz()
         };
-    }
-
-    public int getAmountItems() {
-        return itemList.length;
     }
 
     public ShopItem[] getItemList() {
