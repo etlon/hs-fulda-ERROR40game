@@ -1,8 +1,8 @@
 package com.buyables;
 
-public class ItemMagicalTree extends ShopItem{
+public class ItemMagicalTree extends ShopItem {
 
-    public ItemMagicalTree(){
+    public ItemMagicalTree() {
         this.name = "Magical Tree";
         this.amount = 0;
         this.basePrice = 1500000;

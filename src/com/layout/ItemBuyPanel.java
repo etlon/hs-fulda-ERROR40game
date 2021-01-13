@@ -1,7 +1,8 @@
 package com.layout;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.JPanel;
 
 public class ItemBuyPanel extends JPanel {
 

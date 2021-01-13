@@ -1,9 +1,9 @@
 package com;
 
 import com.buyables.ItemBlanket;
+import com.buyables.ItemDjKittenz;
 import com.buyables.ItemGrandma;
 import com.buyables.ItemPremiumFood;
-import com.buyables.ItemDJKittenz;
 import com.buyables.ItemYarn;
 import com.buyables.ShopItem;
 import java.math.BigDecimal;
@@ -31,7 +31,7 @@ public class Shop {
             new ItemBlanket(),
             new ItemPremiumFood(),
             new ItemGrandma(),
-            new ItemDJKittenz()
+            new ItemDjKittenz()
         };
     }
 

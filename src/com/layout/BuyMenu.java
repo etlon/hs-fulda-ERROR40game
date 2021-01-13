@@ -3,15 +3,15 @@ package com.layout;
 
 import com.AmountTotalClicksLabel;
 import com.buyables.ShopItem;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Font;
+import javax.swing.JLabel;
 
 public class BuyMenu extends JLabel {
     private AmountTotalClicksLabel amountTotalClicks;
     private PassiveIncomeLabel passiveIncomeLabel;
 
-    public BuyMenu(int x, int y, int width, int height, AmountTotalClicksLabel amountTotalClicks, PassiveIncomeLabel passiveIncomeLabel) {
+    public BuyMenu(int x, int y, int width, int height, AmountTotalClicksLabel amountTotalClicks,
+                   PassiveIncomeLabel passiveIncomeLabel) {
         this.setBounds(x, y, width, height);
         //this.setBorder(new EmptyBorder(0,10,0,0));
         this.setFont(new Font("Arial Black", Font.PLAIN, 30));

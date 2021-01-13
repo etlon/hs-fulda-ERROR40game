@@ -1,10 +1,8 @@
 package com.layout;
 
 import com.AmountTotalClicksLabel;
-import com.Main;
 import com.buyables.ShopItem;
-
-import java.awt.*;
+import java.awt.Color;
 import java.math.BigDecimal;
 
 public class IsItemBuyableThread extends Thread {
@@ -21,7 +19,9 @@ public class IsItemBuyableThread extends Thread {
 
     public void run() {
         while (true) {
-            if (new BigDecimal(amountTotalClicks.getCount()).compareTo(new BigDecimal(String.valueOf(item.getPrice()))) >= 0) {
+            String price = String.valueOf(item.getPrice());
+            String count = amountTotalClicks.getCount();
+            if (new BigDecimal(count).compareTo(new BigDecimal(price)) >= 0) {
                 button.setBackground(Color.GREEN);
             } else {
                 button.setBackground(Color.ORANGE);

@@ -1,6 +1,6 @@
 package com.layout;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class BuyAutoClickerPanelLayout extends SimpleLayout {
 

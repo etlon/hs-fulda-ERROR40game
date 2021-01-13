@@ -1,13 +1,15 @@
 package com;
 
 import com.layout.MainClickerMiddleLayout;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.BorderFactory;
+
 
 public class Villain extends JButton {
 
@@ -25,7 +27,8 @@ public class Villain extends JButton {
     private MainClickerMiddleButton mainClickerMiddleButton;
     private AmountTotalClicksLabel amountTotalClicks;
 
-    public Villain(int buttonWidth, int buttonHeight, MainClickerMiddleLayout mainClickerMiddleLayout, MainClickerMiddleButton mainClickerMiddleButton, AmountTotalClicksLabel amountTotalClicks) {
+    public Villain(int buttonWidth, int buttonHeight, MainClickerMiddleLayout mainClickerMiddleLayout,
+                   MainClickerMiddleButton mainClickerMiddleButton, AmountTotalClicksLabel amountTotalClicks) {
 
         this.width = buttonWidth;
         this.height = buttonHeight;
@@ -79,7 +82,8 @@ public class Villain extends JButton {
                         do {
                             randomX = ThreadLocalRandom.current().nextInt(0, maxWidth);
                             randomY = ThreadLocalRandom.current().nextInt(0, maxHeight);
-                        } while (!((allowedYtop - randomY) >= 0) && !((allowedXleft - randomX) >= 0) && !(allowedYbottom <= randomY) && !(allowedXright <= randomX));
+                        } while (!((allowedYtop - randomY) >= 0) && !((allowedXleft - randomX) >= 0)
+                                && !(allowedYbottom <= randomY) && !(allowedXright <= randomX));
 
                         this.x = randomX;
                         this.y = randomY;

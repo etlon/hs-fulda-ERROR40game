@@ -1,6 +1,6 @@
 package com.layout;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 public class SimpleLayout extends JPanel {
 

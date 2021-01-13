@@ -2,10 +2,9 @@ package com.layout;
 
 import com.Shop;
 import com.ToolManager;
-
-import javax.swing.*;
+import java.awt.Font;
+import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
 
 public class PassiveIncomeLabel extends JLabel {
 

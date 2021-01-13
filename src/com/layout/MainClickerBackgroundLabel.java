@@ -1,8 +1,9 @@
 package com.layout;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class MainClickerBackgroundLabel extends JLabel {
 
