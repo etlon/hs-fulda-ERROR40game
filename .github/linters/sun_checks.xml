@@ -181,6 +181,7 @@
             <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
             <message key="name.invalidPattern"
                      value="Member name ''{0}'' must match pattern ''{1}''."/>
+            <property name="severity" value="warning"/>
         </module>
         <module name="ParameterName">
             <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
@@ -240,7 +241,7 @@
         </module>
         <module name="Indentation">
             <property name="basicOffset" value="4"/>
-            <property name="braceAdjustment" value="2"/>
+            <property name="braceAdjustment" value="4"/>
             <property name="caseIndent" value="2"/>
             <property name="throwsIndent" value="4"/>
             <property name="lineWrappingIndentation" value="4"/>
@@ -298,7 +299,9 @@
             <property name="tokens" value="VARIABLE_DEF"/>
             <property name="allowSamelineMultipleAnnotations" value="true"/>
         </module>
-        <module name="NonEmptyAtclauseDescription"/>
+        <module name="NonEmptyAtclauseDescription">
+            <property name="severity" value="warning"/>
+        </module>
         <module name="InvalidJavadocPosition">
             <property name="severity" value="warning"/>
         </module>
