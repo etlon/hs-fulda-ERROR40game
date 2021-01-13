@@ -1,7 +1,8 @@
 package com;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 public class DefaultMainFrame extends JFrame {
 
