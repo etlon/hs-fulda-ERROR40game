@@ -21,7 +21,6 @@ public class ItemBuyButton extends JButton {
 
     public ItemBuyButton(ItemBuyButton[] buttons, int index, ShopItem item,
                          AmountTotalClicksLabel amountTotalClicks, PassiveIncomeLabel passiveIncomeLabel) {
-        DecimalFormat df = new DecimalFormat("0");
         this.item = item;
         this.buttons = buttons;
         this.index = index;
@@ -36,6 +35,7 @@ public class ItemBuyButton extends JButton {
             else this.runBuyableTest();
         } else this.runBuyableTest();
 
+        DecimalFormat df = new DecimalFormat("0");
         String price = ToolManager.formatCounter(new BigDecimal(df.format(item.getPrice())));
         this.setText("<html>" + item.getName() + "<br />" + price + "<br/>" + item.getAmount() + "</html>");
         this.setPreferredSize(new Dimension(120, 100));
@@ -72,8 +72,8 @@ public class ItemBuyButton extends JButton {
     }
 
     private void updateTooltip() {
-        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>" +
-                "total cps: " + ToolManager.formatCounter(item.getIncome()) + "</html>");
+        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>"
+                + "total cps: " + ToolManager.formatCounter(item.getIncome()) + "</html>");
     }
 
 }
