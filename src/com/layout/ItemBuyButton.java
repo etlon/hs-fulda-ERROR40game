@@ -1,24 +1,32 @@
 package com.layout;
 
-import com.Main;
+import com.AmountTotalClicksLabel;
 import com.ToolManager;
 import com.buyables.ShopItem;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 public class ItemBuyButton extends JButton {
 
     private ShopItem item;
     private ItemBuyButton[] buttons;
     private int index;
+    private AmountTotalClicksLabel amountTotalClicks;
+    private PassiveIncomeLabel passiveIncomeLabel;
 
-    public ItemBuyButton(ItemBuyButton[] buttons, int index, ShopItem item) {
+    public ItemBuyButton(ItemBuyButton[] buttons, int index, ShopItem item,
+                         AmountTotalClicksLabel amountTotalClicks, PassiveIncomeLabel passiveIncomeLabel) {
         this.item = item;
         this.buttons = buttons;
         this.index = index;
-        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>" + "total cps: " + item.getIncome() + "</html>");
+        this.updateTooltip();
+        this.amountTotalClicks = amountTotalClicks;
+        this.passiveIncomeLabel = passiveIncomeLabel;
 
         UIManager.put("ToolTip.background", Color.white);
 
@@ -27,22 +35,24 @@ public class ItemBuyButton extends JButton {
             else this.runBuyableTest();
         } else this.runBuyableTest();
 
-        String price = ToolManager.formatCounter(BigDecimal.valueOf(item.getPrice()));
+        DecimalFormat df = new DecimalFormat("0");
+        String price = ToolManager.formatCounter(new BigDecimal(df.format(item.getPrice())));
         this.setText("<html>" + item.getName() + "<br />" + price + "<br/>" + item.getAmount() + "</html>");
         this.setPreferredSize(new Dimension(120, 100));
         this.setHorizontalAlignment(SwingConstants.CENTER);
         this.addActionListener(e -> {
-            BigDecimal dm = new BigDecimal(Main.amountTotalClicks.getCount());
+            BigDecimal dm = new BigDecimal(amountTotalClicks.getCount());
             double itemPrice = item.getPrice();
             if (dm.compareTo(new BigDecimal(String.valueOf(itemPrice))) >= 0) {
-                Main.amountTotalClicks.increaseCounter(String.valueOf(0 - itemPrice));
+                amountTotalClicks.increaseCounter(df.format(0 - itemPrice));
                 item.buy();
                 String name = item.getName();
                 String s = ToolManager.formatCounter(new BigDecimal(String.valueOf(item.getPrice())));
 
                 this.setText("<html>" + item.getName() + "<br />" + s + "<br/>" + item.getAmount() + "</html>");
                 //System.out.println("gekauft: " + item.getName() + " " + itemPrice + " " + item.getAmount());
-                Main.passiveIncomeLabel.updatePassiveIncome();
+                passiveIncomeLabel.updatePassiveIncome();
+                this.updateTooltip();
 
                 if (item.getAmount() > 0 && index < buttons.length - 1) {
                     buttons[index + 1].setEnabled(true);
@@ -57,9 +67,13 @@ public class ItemBuyButton extends JButton {
     }
 
     private void runBuyableTest() {
-        Thread t = new IsItemBuyableThread(item, this);
+        Thread t = new IsItemBuyableThread(item, this, amountTotalClicks);
         t.start();
     }
 
+    private void updateTooltip() {
+        this.setToolTipText("<html>" + "cps per item: " + item.getBaseIncome() + "<br>"
+                + "total cps: " + ToolManager.formatCounter(item.getIncome()) + "</html>");
+    }
 
 }

@@ -1,6 +1,6 @@
 package com.layout;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class BuyAutoClickerPanelLayout extends SimpleLayout {
 
@@ -15,6 +15,7 @@ public class BuyAutoClickerPanelLayout extends SimpleLayout {
     public BuyAutoClickerPanelLayout(int x, int y, int width, int height) {
         super(x, y, width, height);
         this.setOpaque(true);
+        this.setBackground(new Color(0x6AFF11));
 
     }
 }

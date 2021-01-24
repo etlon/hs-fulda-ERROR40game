@@ -1,6 +1,12 @@
 package com;
 
-import com.buyables.*;
+import com.buyables.ItemBlanket;
+import com.buyables.ItemDjKittenz;
+import com.buyables.ItemGrandma;
+import com.buyables.ItemPremiumFood;
+import com.buyables.ItemYarn;
+import com.buyables.ShopItem;
+import java.math.BigDecimal;
 
 public class Shop {
 
@@ -10,33 +16,23 @@ public class Shop {
         this.fillItemList();
     }
 
-    public double getIncome() {
-        double income = 0;
+    public BigDecimal getIncome() {
+        BigDecimal income = new BigDecimal(0);
         for (ShopItem item : itemList) {
-            income += item.getIncome();
+            income = income.add(item.getIncome());
         }
         return income;
     }
 
     public void fillItemList() {
         //create every buyable item once and put it into "itemList"
-        itemList = new ShopItem[5];
-        //Created just for testing purposes need further updates
-        itemList[0] = new ItemYarn();
-        itemList[1] = new ItemBlanket();
-        itemList[2] = new ItemPremiumCatFood();
-        itemList[3] = new ItemGrandma();
-        itemList[4] = new ItemDJKittenz();
-    }
-
-    public void saveItems() {
-        for (ShopItem item : itemList) {
-            Main.fileManager.addValueByKey(item.getName(), "" + item.getAmount());
-        }
-    }
-
-    public int getAmountItems() {
-        return itemList.length;
+        itemList = new ShopItem[]{
+            new ItemYarn(),
+            new ItemBlanket(),
+            new ItemPremiumFood(),
+            new ItemGrandma(),
+            new ItemDjKittenz()
+        };
     }
 
     public ShopItem[] getItemList() {

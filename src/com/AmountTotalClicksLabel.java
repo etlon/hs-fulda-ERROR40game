@@ -1,16 +1,17 @@
 package com;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 public class AmountTotalClicksLabel extends JLabel {
 
     private BigDecimal count = new BigDecimal(0);
-    private char[] suffixArray = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    DecimalFormat df;
+    private DecimalFormat df;
 
     /**
      * @param x      origin of label on x axis
@@ -61,28 +62,10 @@ public class AmountTotalClicksLabel extends JLabel {
         this.setText(ToolManager.formatCounter(count));
     }
 
-
-    /**
-     * shortens long numbers for the counter
-     * @param count count to be shortened and having an
-     * unit added to them
-     */
-    /*
-    public String formatCounter(BigDecimal count){
-
-        int counter=0;
-        //gerade keine Lust ein Index Out of Bounds zu verhindern
-        if(counter == 26) System.exit(0);
-        if(count.compareTo(new BigDecimal(1000)) <= 0) return String.valueOf(count);
-        while (count.compareTo(new BigDecimal(1000))>=0) {
-            count = count.divide(new BigDecimal(1000));
-            counter++;
-        }
-
-        return df.format(count.doubleValue()) + suffixArray[counter];
+    public void increaseCounter(BigDecimal amount) {
+        count = count.add(amount);
+        this.setText(ToolManager.formatCounter(count));
     }
-    ("0.000");
-     */
 
     /**
      * returns current count as String

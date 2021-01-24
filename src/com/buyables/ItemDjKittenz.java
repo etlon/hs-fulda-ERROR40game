@@ -1,8 +1,8 @@
 package com.buyables;
 
-public class ItemDJKittenz extends ShopItem {
+public class ItemDjKittenz extends ShopItem {
 
-    public ItemDJKittenz() {
+    public ItemDjKittenz() {
         this.name = "DJ Kittenz";
         this.amount = 0;
         this.basePrice = 120000;

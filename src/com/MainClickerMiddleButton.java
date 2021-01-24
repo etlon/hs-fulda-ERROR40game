@@ -1,11 +1,19 @@
 package com;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 public class MainClickerMiddleButton extends JButton {
+
+    int x;
+    int y;
+    int width;
+    int height;
+    boolean isRunning;
+    AmountTotalClicksLabel amountTotalClicks;
 
     /**
      * @param x origin of button on x axis
@@ -14,21 +22,16 @@ public class MainClickerMiddleButton extends JButton {
      * @param height height of button
      */
 
-    int xCord;
-    int yCord;
-    int width;
-    int height;
-    boolean isRunning;
+    public MainClickerMiddleButton(int x, int y, int width, int height, AmountTotalClicksLabel amountTotalClicks) {
 
-    public MainClickerMiddleButton(int x, int y, int width, int height) throws IOException {
-
-        this.xCord = x;
-        this.yCord = y;
+        this.x = x;
+        this.y = y;
         this.width = width;
         this.height = height;
         this.isRunning = false;
+        this.amountTotalClicks = amountTotalClicks;
 
-        this.setBounds(this.xCord, this.yCord, this.width, this.height);
+        this.setBounds(this.x, this.y, this.width, this.height);
 
         try {
             BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
@@ -36,36 +39,33 @@ public class MainClickerMiddleButton extends JButton {
             this.setBorder(BorderFactory.createEmptyBorder());
             this.setContentAreaFilled(false);
             this.addActionListener(e -> {
-                Main.amountTotalClicks.increaseCounter();
+                amountTotalClicks.increaseCounter();
 
                 try {
                     doButtonAnimation();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                } catch (Exception exc) {
+                    exc.printStackTrace();
                 }
-
             });
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    public void doButtonAnimation() throws IOException {
+    public void doButtonAnimation() {
         if (isRunning) return;
-
-        BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
-        ImageIcon gif = new ImageIcon(this.getClass().getResource("/com/assets/bongocat.gif"));
 
         new Thread(() -> {
             this.isRunning = true;
 
             try {
+                BufferedImage buttonIcon = ImageIO.read(getClass().getResource("/com/assets/bongocatresized.png"));
+                ImageIcon gif = new ImageIcon(this.getClass().getResource("/com/assets/bongocat.gif"));
                 setIcon(gif);
                 Thread.sleep(600);
                 setIcon(new ImageIcon(buttonIcon));
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
