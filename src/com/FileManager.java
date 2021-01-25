@@ -81,7 +81,7 @@ public class FileManager {
         }
     }
 
-    public void loadItems() throws NullPointerException{
+    public void loadItems() throws NullPointerException {
         ShopItem[] items = shop.getItemList();
         for (ShopItem item : items) {
             int amount = Integer.parseInt(this.getValueByKey(item.getName()));
