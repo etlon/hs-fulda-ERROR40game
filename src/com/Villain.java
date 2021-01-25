@@ -7,8 +7,8 @@ import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 
 public class Villain extends JButton {
