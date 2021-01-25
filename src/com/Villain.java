@@ -93,11 +93,11 @@ public class Villain extends JButton {
 
                         this.setBounds(x, y, width, height);
                         isSpawned = true;
-                        this.show();
+                        this.setVisible(true);
                     }
                     while (isSpawned) {
                         BigDecimal currentMoney = new BigDecimal(amountTotalClicks.getCount());
-                        if (ToolManager.compareBigDecimal(currentMoney, new BigDecimal(5)) > 1) {
+                        if (ToolManager.compareBigDecimal(currentMoney, new BigDecimal(5)) > 0) {
                             currentMoney = currentMoney.multiply(BigDecimal.valueOf(percentageLossVillain / 100));
                             currentMoney = new BigDecimal(df.format(currentMoney.doubleValue()));
                             amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
