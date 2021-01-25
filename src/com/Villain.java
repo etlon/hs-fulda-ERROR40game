@@ -1,13 +1,14 @@
 package com;
 
 import com.layout.MainClickerMiddleLayout;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.BorderFactory;
 
 
 public class Villain extends JButton {
@@ -96,7 +97,7 @@ public class Villain extends JButton {
                     }
                     while (isSpawned) {
                         BigDecimal currentMoney = new BigDecimal(amountTotalClicks.getCount());
-                        if (currentMoney.compareTo( new BigDecimal(5)) > 0) {
+                        if (currentMoney.compareTo(new BigDecimal(5)) > 0) {
                             currentMoney = currentMoney.multiply(BigDecimal.valueOf(percentageLossVillain / 100));
                             currentMoney = new BigDecimal(df.format(currentMoney.doubleValue()));
                             amountTotalClicks.increaseCounter(currentMoney.multiply(new BigDecimal(-1)));
