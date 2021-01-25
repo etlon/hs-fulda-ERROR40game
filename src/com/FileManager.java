@@ -56,6 +56,7 @@ public class FileManager {
             String newLine;
             while ((newLine = br.readLine()) != null) {
 
+                if (newLine.equals("")) continue;
                 //Escape character (#) for comments
                 if (newLine.charAt(0) == '#') continue;
                 //Skips the current line if no equals (=) is found
@@ -71,12 +72,16 @@ public class FileManager {
             e.printStackTrace();
         }
 
-        amountTotalClicks.increaseCounter(getValueByKey("money"));
-        this.loadItems();
-        ToolManager.idleFarm(Long.parseLong(getValueByKey("closeTime")), 1, shop, amountTotalClicks);
+        try {
+            amountTotalClicks.increaseCounter(getValueByKey("money"));
+            this.loadItems();
+            ToolManager.idleFarm(Long.parseLong(getValueByKey("closeTime")), 1, shop, amountTotalClicks);
+        } catch (Exception ignored) {
+
+        }
     }
 
-    public void loadItems() {
+    public void loadItems() throws NullPointerException {
         ShopItem[] items = shop.getItemList();
         for (ShopItem item : items) {
             int amount = Integer.parseInt(this.getValueByKey(item.getName()));
