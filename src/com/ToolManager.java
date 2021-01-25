@@ -26,9 +26,7 @@ public class ToolManager {
         return false;
     }
 
-    public static int compareBigDecimal(BigDecimal bd1, BigDecimal bd2) {
-        return bd1.compareTo(bd2);
-    }
+
 
     public static String formatCounter(BigDecimal count) {
 
