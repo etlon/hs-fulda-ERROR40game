@@ -21,7 +21,7 @@ You can download the latest release [here](https://github.com/etlon/hs-fulda-ERR
 
 ## FAQ
 ### Where is the game.save file located?
-- The game.save file is located in your documents folder
+- The game.save file is located in your documents inside the kittenclicker folder
 ### How do I save my current progress?
 - Your progress will be saved automatically every 10 minutes or by closing the game via the X in the top right corner of your game
 ### I lost my progress
